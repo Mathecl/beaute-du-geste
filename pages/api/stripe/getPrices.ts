@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import Stripe from 'stripe';
+// import Stripe from 'stripe';
 
 import { verifyAuth } from '@/utils/auth/auth';
 

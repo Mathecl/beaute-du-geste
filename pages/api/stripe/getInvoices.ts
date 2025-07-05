@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 import { verifyAuth } from '@/utils/auth/auth';
 
-import Stripe from 'stripe';
+// import Stripe from 'stripe';
 
 export default async function handler(
   req: NextApiRequest,
