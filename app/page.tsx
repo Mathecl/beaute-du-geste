@@ -97,8 +97,8 @@ export default function Home() {
                         isMobile ? 'text-dark' : 'text-white'
                       } text-xl font-bold tracking-tighter md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl`}
                     >
-                      <span style={{ color: '#00fc71' }}>Unigate</span>, c'est
-                      l'avenir de la gestion
+                      <span style={{ color: '#00fc71' }}>Beauté du geste</span>,
+                      c'est l'avenir de la gestion
                       <br />
                       d'entreprise à portée de clic.
                     </h1>
@@ -162,7 +162,7 @@ export default function Home() {
                   Commençons à collaborer ensemble
                 </h2>
                 <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
-                  Essayez gratuitement Unigate
+                  Essayez gratuitement Beauté du geste
                 </p>
                 <button onClick={openSignUp}>Commencer</button>
               </div>

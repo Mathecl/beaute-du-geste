@@ -274,7 +274,7 @@ const SignUp = ({ users }: Users) => {
                       <small id="username-help">
                         A conserver si vous êtes voué(e) à avoir le rôle
                         d'administrat(eur/trice) pour accéder à certaines
-                        ressources de Unigate
+                        ressources de Beauté du geste
                       </small>
                     </span>
                   </div>
@@ -299,7 +299,7 @@ const SignUp = ({ users }: Users) => {
               <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
                 <div className="mx-auto max-w-xs px-6">
                   <Button
-                    label="Accéder à Unigate"
+                    label="Accéder à Beauté du geste"
                     onClick={handleModal}
                     // size="small"
                     outlined
@@ -337,7 +337,8 @@ const SignUp = ({ users }: Users) => {
           Votre compte
         </h2>
         <p className="mt-1 text-sm leading-6 text-gray-600">
-          Créez votre compte Unigate sécurisé et relié à votre entreprise
+          Créez votre compte Beauté du geste sécurisé et relié à votre
+          entreprise
         </p>
         <br />
         <form

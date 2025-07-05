@@ -56,7 +56,7 @@ export default function FooterServices() {
                     href="/"
                     className="self-center whitespace-nowrap text-2xl font-semibold"
                   >
-                    Unigate
+                    Beauté du geste
                   </Link>
                 </a>
               </div>
@@ -172,9 +172,9 @@ export default function FooterServices() {
             <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
               <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-                © 2024{' '}
+                © 2025{' '}
                 <Link href="/" className="hover:underline">
-                  Unigate
+                  Beauté du geste
                 </Link>
                 . Tous droits réservés.
               </span>

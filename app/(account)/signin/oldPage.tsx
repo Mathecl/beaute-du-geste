@@ -196,7 +196,7 @@ const SignIn = ({ users }: Users) => {
         </form>
 
         <p className="mt-10 text-center text-sm text-gray-500">
-          Pas encore enregistré(e) à Unigate ?&nbsp;
+          Pas encore enregistré(e) à Beauté du geste ?&nbsp;
           <Link
             href="/signup"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"

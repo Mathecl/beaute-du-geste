@@ -132,7 +132,7 @@ const SideBar = () => {
       },
       { separator: true },
       {
-        label: 'Unigate',
+        label: 'Beauté du geste',
         items: [
           {
             label: 'Blog',
@@ -383,7 +383,7 @@ const SideBar = () => {
     },
     { separator: true },
     {
-      label: 'Unigate',
+      label: 'Beauté du geste',
       items: [
         {
           label: 'Blog',
