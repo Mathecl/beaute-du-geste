@@ -1,0 +1,33 @@
+{
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "name": "Beauté du geste",
+  "short_name": "Beauté du geste",
+  "description": "Beauté du Geste vous invite à découvrir lart du Kobido, un soin du visage dexception qui allie tradition japonaise et gestes intuitifs pour sublimer votre peau et apaiser votre esprit",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

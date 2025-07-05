@@ -1,0 +1,91 @@
+generator client {
+  provider     = "prisma-client-js"
+  relationMode = "(array)"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id                 String    @id @default(cuid())
+  name               String?
+  email              String?   @unique
+  password           String?
+  language           String?
+  voice              String?
+  pinCode            String?
+  createdAt          DateTime? @default(now())
+  company            String?
+  city               String?
+  role               String?   @default("employee")
+  subscription       String?   @default("free") // if customer has at least one subscription
+  stripecustomerid   String?   @unique
+  stripeassistant    Boolean?  @default(false) // widget: unismart (asisstant intelligent)
+  stripemeet         Boolean?  @default(false) // widget: unimeet (réunions publiques)
+  stripecollab       Boolean?  @default(false) // widget: unicollab (outils de collaboration privée)
+  stripebiznetwork   Boolean?  @default(false) // widget: unibiz (réseau d'affaires)
+  stripecash         Boolean?  @default(false)  // widget: unicash (logiciel de gestion de restaurants)
+  verified           Boolean?  @default(false) // user successfully filled pin code with the one sent by email
+  approved           Boolean?  @default(false) // temporary used for private beta
+}
+
+model Company {
+  companyId          String    @id @default(cuid())
+  name               String    @unique
+  licenses           Json?
+  createdAt          DateTime  @default(now())
+}
+
+model CompProducts {
+  uid                 String    @id @default(cuid())
+  company             String?
+  product             String? 
+  description         String?
+  category            String?   // menu, entrée, plat, dessert, boisson
+  quantity            Int?      @default(0)
+  price               Decimal?  // pour utilisation: product.price.toNumber()
+  inventorystatus     String?   // disponible (en stock), presque épuisé (faible stock), indisponible (rupture de stock)
+  rate                Int?      // x étoiles
+  city                String?
+}
+
+model CompRecipes {
+  uid                 String    @id @default(cuid())
+  company             String?
+  recipeandsupply     Json?
+  type                String?   // entrée, plat, dessert ou boisson
+  city                String?
+} 
+
+model CompEmployees {
+  uid                 String    @id @default(cuid())
+  company             String?
+  email               String?
+  date                DateTime?  @default(now())
+  clock               Json?     // date de début de pointage, date de fin de pointage, heures travaillées, pauses
+  hourlyrate          Decimal?
+}
+
+model CompCashDesks {
+  uid                 String    @id @default(cuid())
+  company             String?
+  cashdesk            String?   @unique
+  city                String?
+  date                DateTime  @default(now())
+  cashfloat           Json?    // pièces (coins) de: 1ct, 2ct, 5ct, 10ct, 20ct, 50ct, 1e, 2e + billets (notes) de: 5e, 10e, 20e, 50e, 100e, 200e, 500e
+}
+
+model Cons {
+  uid                 String    @id @default(cuid())
+  company             String?
+  consumeremail       String?
+  date                DateTime  @default(now())
+  state               String?   // progression de la commande: unpaid -> paid -> cooking -> cooked -> delivered / canceled
+  city                String?
+  order               Json?     // produit(s) (nom, quantité, prix), type de payement (cash, credit card), type de consommation (on prem, click & collect, delivery)
+  invoice             String?   // stripe invoice url
+  receipt             String?   // stripe receipt url
+}

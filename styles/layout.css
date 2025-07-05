@@ -1,0 +1,27 @@
+@import './globals.css';
+
+/* Layout */
+
+#content {
+  position: relative;
+  width: 99%;
+  left: 0.5%;
+  transition: 0.3s ease;
+}
+#children {
+  background-color: var(--surface-b);
+
+  border-radius: 36px;
+
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    /* borders */ rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; /* shadows */
+
+  min-height: 80vh;
+
+  /* padding: 1.75rem; */
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
