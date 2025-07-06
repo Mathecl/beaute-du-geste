@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 
-import { redisSet, redisGet } from '@/utils/redisUtils/redisUtils';
+// import { redisSet, redisGet } from '@/utils/redisUtils/redisUtils';
 
 export const todayISODate = () => {
   const todayDate = new Date();
@@ -51,7 +51,7 @@ export default async function handler(
       const userNameWithoutSpaces =
         'get' + userName.replace(/\s/g, '') + 'Infos';
 
-      const cachedValue = await redisGet(userNameWithoutSpaces);
+      // const cachedValue = await redisGet(userNameWithoutSpaces);
       const parsedCachedValue = JSON.parse(cachedValue);
 
       let userTokenUpdateDate = parsedCachedValue[0].userLastTokenUpdateDate;
@@ -83,7 +83,7 @@ export default async function handler(
       // delete updatedJwtPayload['iat'];
       // delete updatedJwtPayload['jti'];
       // delete updatedJwtPayload['jwt'];
-      await redisSet(userNameWithoutSpaces, updatedJwtPayload, 'userMngmt');
+      // await redisSet(userNameWithoutSpaces, updatedJwtPayload, 'userMngmt');
 
       return res.status(200).json(updatedJwtPayload);
     } catch (error) {

@@ -1,20 +1,24 @@
 import React, { ReactNode } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
+import { Playfair_Display, DM_Sans } from "next/font/google"
 import '@/styles/globals.css';
-import { Tenor_Sans } from 'next/font/google';
-const tenorSans = Tenor_Sans({
-  weight: '400',
-  subsets: ['latin'],
-});
-
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+})
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-dmsans",
+  display: "swap",
+})
 import Provider from './Provider';
 import Layout from '@/ui/layout/Layout';
-import FooterServices from '@/ui/layout/FooterServices';
-import UnigateLogo from '../public/masquotHello.png';
+// import FooterServices from '@/ui/layout/FooterServices';
 
 interface IProps {
   children: ReactNode;
@@ -23,7 +27,7 @@ interface IProps {
 export const metadata: Metadata = {
   title: process.env.NEXT_APP_NAME,
   description:
-    'Beauté du Geste vous invite à découvrir lart du Kobido, un soin du visage dexception qui allie tradition japonaise et gestes intuitifs pour sublimer votre peau et apaiser votre esprit',
+    "Découvrez l'art du Kobido, un soin du visage d'exception",
   themeColor: '#ffffff',
   manifest: '/manifest.json',
   category: 'technology',
@@ -71,11 +75,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: IProps) {
   return (
-    <html lang="en">
+    <html lang="fr" className={`${playfair.variable} ${dmSans.variable}`}>
       <head>
         <title>{process.env.NEXT_APP_NAME}</title>
       </head>
-      <body className={tenorSans.className}>
+      <body>
         <Provider>
           <div className="overflow-y-scroll">
             <Layout>
@@ -88,7 +92,7 @@ export default function RootLayout({ children }: IProps) {
           </div>
         </Provider>
       </body>
-      <FooterServices />
+      {/* <FooterServices /> */}
       {/* <ScrollTop /> */}
     </html>
   );

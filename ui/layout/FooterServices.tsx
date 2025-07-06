@@ -9,36 +9,36 @@ let userRole: string = '';
 
 export default function FooterServices() {
   // App context
-  const getJWTdataUrl: string = appContext.appUrl + '/api/auth/getJWTdata';
+  // const getJWTdataUrl: string = appContext.appUrl + '/api/auth/getJWTdata';
   // Get JWT data from user token
   const [userCompany, setUserCompany] = useState('');
   useEffect(() => {
-    const fetchJWTData = async () => {
-      try {
-        const response = await fetch(getJWTdataUrl, {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          method: 'GET',
-        });
-        const data = await response.json();
-        setUserCompany(data.userPrismaCompany.toLowerCase());
+    // const fetchJWTData = async () => {
+    //   try {
+    //     const response = await fetch(getJWTdataUrl, {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Accept: 'application/json',
+    //       },
+    //       method: 'GET',
+    //     });
+    //     const data = await response.json();
+    //     setUserCompany(data.userPrismaCompany.toLowerCase());
 
-        if (data.message !== 'jwt must be provided') {
-          userRole = data.userPrismaRole;
-        } else {
-          userRole = '';
-        }
-      } catch (error) {
-        console.error('Error fetching jwt data:', error);
-      }
-    };
+    //     if (data.message !== 'jwt must be provided') {
+    //       userRole = data.userPrismaRole;
+    //     } else {
+    //       userRole = '';
+    //     }
+    //   } catch (error) {
+    //     console.error('Error fetching jwt data:', error);
+    //   }
+    // };
     const path = window.location.pathname; // Get the path part of the URL
     const segments = path.split('/').filter((segment) => segment); // Split by '/' and filter out empty segments
     firstSegment = segments.length > 0 ? segments[0] : null; // Set the first segment or null if no segments
 
-    fetchJWTData();
+    // fetchJWTData();
   }, []);
 
   return (

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "PORT=3000 next dev",
     "build": "rm -rf node_modules/ package-lock.json .next/ && npm install && next build",
-    "start": "next start"
+    "start": "next start",
+    "shadcn add": "npx shadcn@latest add"
   },
   "prettier": {
     "arrowParens": "always",
@@ -15,6 +16,13 @@
   },
   "dependencies": {
     "@prisma/client": "5.0.0",
+    "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.7",
     "@sentry/nextjs": "7.77.0",
     "@types/bcrypt": "5.0.2",
     "@types/cookie": "0.5.1",
@@ -27,13 +35,15 @@
     "autoprefixer": "10.4.14",
     "bcrypt": "5.1.0",
     "chart.js": "4.4.2",
-    "clsx": "2.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.0.0",
     "cookie": "0.5.0",
     "cors": "2.8.5",
     "crypto-js": "4.2.0",
     "dompurify": "3.0.10",
     "jose": "4.14.4",
     "jsonwebtoken": "9.0.2",
+    "lucide-react": "^0.525.0",
     "next": "13.4.9",
     "next-compose-plugins": "2.2.1",
     "next-pwa": "5.6.0",
@@ -44,7 +54,9 @@
     "react-dom": "18.2.0",
     "react-transition-group": "^4.4.5",
     "styled-components": "6.1.8",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "3.3.2",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.1.6"
   },
   "devDependencies": {

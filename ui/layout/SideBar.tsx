@@ -22,33 +22,33 @@ const SideBar = () => {
     }
   };
 
-  const getJWTdataUrl: string = appContext.appUrl + '/api/auth/getJWTdata';
+  // const getJWTdataUrl: string = appContext.appUrl + '/api/auth/getJWTdata';
   const [userCompany, setUserCompany] = useState('');
   const [dataFetched, setDataFetched] = useState(false);
   useEffect(() => {
-    const fetchJWTData = async () => {
-      try {
-        const response = await fetch(getJWTdataUrl, {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          method: 'GET',
-        });
-        const data = await response.json();
+    // const fetchJWTData = async () => {
+    //   try {
+    //     const response = await fetch(getJWTdataUrl, {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Accept: 'application/json',
+    //       },
+    //       method: 'GET',
+    //     });
+    //     const data = await response.json();
 
-        if (response.ok) {
-          setUserCompany(data.userPrismaCompany.toLowerCase());
-        } else {
-          setUserCompany('undefined');
-        }
+    //     if (response.ok) {
+    //       setUserCompany(data.userPrismaCompany.toLowerCase());
+    //     } else {
+    //       setUserCompany('undefined');
+    //     }
 
-        setDataFetched(true);
-      } catch (error) {
-        console.log('Error fetching jwt data:', error);
-      }
-    };
-    fetchJWTData();
+    //     setDataFetched(true);
+    //   } catch (error) {
+    //     console.log('Error fetching jwt data:', error);
+    //   }
+    // };
+    // fetchJWTData();
   }, []);
 
   if (userCompany === "thebrother's") {

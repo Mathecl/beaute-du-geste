@@ -21,7 +21,7 @@ let userRole: string = '';
 
 export default function TopBar() {
   // App Context
-  const getJWTdataUrl: string = appContext.appUrl + '/api/auth/getJWTdata';
+  // const getJWTdataUrl: string = appContext.appUrl + '/api/auth/getJWTdata';
   const getSignOutUser: string = appContext.appUrl + '/api/signOutUser';
   const getSignOutRedirectionurl: string =
     appContext.appUrl + "/unicash/thebrother's";
@@ -45,40 +45,40 @@ export default function TopBar() {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   useEffect(() => {
-    const fetchJWTData = async () => {
-      try {
-        const response = await fetch(getJWTdataUrl, {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          method: 'GET',
-        });
-        const data = await response.json();
+    // const fetchJWTData = async () => {
+    //   try {
+    //     const response = await fetch(getJWTdataUrl, {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Accept: 'application/json',
+    //       },
+    //       method: 'GET',
+    //     });
+    //     const data = await response.json();
 
-        if (data.message !== 'jwt must be provided') {
-          setUserName('Cher(e) ' + data.userPrismaName + ',');
-          userRole = data.userPrismaRole;
-          setIsUserSignedIn(true);
-        } else {
-          setIsUserSignedIn(false);
+    //     if (data.message !== 'jwt must be provided') {
+    //       setUserName('Cher(e) ' + data.userPrismaName + ',');
+    //       userRole = data.userPrismaRole;
+    //       setIsUserSignedIn(true);
+    //     } else {
+    //       setIsUserSignedIn(false);
 
-          userRole = '';
-        }
+    //       userRole = '';
+    //     }
 
-        // set dataFetched to true after successful fetch (to avoid displaying temporary information that are not totally valid)
-        // ie: user has paid subscription + corresponding feature but has the "Not authorized: ..." message due to fetchJWTData() not terminated
-        setDataFetched(true);
-      } catch (error) {
-        console.error('Error fetching jwt data:', error);
-      }
-    };
+    //     // set dataFetched to true after successful fetch (to avoid displaying temporary information that are not totally valid)
+    //     // ie: user has paid subscription + corresponding feature but has the "Not authorized: ..." message due to fetchJWTData() not terminated
+    //     setDataFetched(true);
+    //   } catch (error) {
+    //     console.error('Error fetching jwt data:', error);
+    //   }
+    // };
 
     const path = window.location.pathname; // Get the path part of the URL
     const segments = path.split('/').filter((segment) => segment); // Split by '/' and filter out empty segments
     firstSegment = segments.length > 0 ? segments[0] : null; // Set the first segment or null if no segments
 
-    fetchJWTData();
+    // fetchJWTData();
   }, []);
 
   // Sign out function

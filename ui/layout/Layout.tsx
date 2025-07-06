@@ -8,7 +8,6 @@ import { Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
 import '@/styles/layout.css';
-import '@/styles/accueil.css';
 
 export default function Layout({ children }) {
   const [showNav, setShowNav] = useState(true);
