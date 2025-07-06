@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { postTranslationData } from '@/utils/openai/postTranslationData';
 import { AppContext, appContext } from '@/types/appContext';
 import languagesiso from '@/utils/openai/languagesiso';
-import '@/styles/unismart.css';
+// import '@/styles/unismart.css';
 
 import { Toast } from 'primereact/toast';
 import { InputText } from 'primereact/inputtext';

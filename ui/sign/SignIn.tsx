@@ -13,7 +13,7 @@ import { Password } from 'primereact/password';
 import { Toast } from 'primereact/toast';
 import { Button } from 'primereact/button';
 
-import '@/styles/sign.css';
+// import '@/styles/sign.css';
 
 interface Users {
   users: {

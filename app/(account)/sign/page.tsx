@@ -9,7 +9,7 @@ import { Button } from 'primereact/button';
 
 import SignIn from '@/ui/sign/SignIn.tsx';
 import SignUp from '@/ui/sign/SignUp.tsx';
-import '@/styles/sign.css';
+// import '@/styles/sign.css';
 
 export default function Sign() {
   const [signUp, setSignUp] = useState<boolean>(true);
