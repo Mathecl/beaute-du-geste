@@ -180,11 +180,11 @@ export default async function handler(
 
       //   await redisSet(userFinalPrismaName, jwtPayload, 'userMngmt');
 
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: userFilledEmail,
-        password: userFilledPassword,
+      const { data, error } = await supabase.auth.signInWithPassword({ // signUp
+        email,
+        password,
       });
-
+      
       if (error) {
         await wait(2500);
         console.log('Incorrect login: anti-bruteforce...');
