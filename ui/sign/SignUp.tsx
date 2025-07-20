@@ -2,7 +2,7 @@
 import React, { useRef, useState, ChangeEvent } from 'react';
 
 import { AppContext, appContext } from '@/types/appContext';
-import { sendVerificationEmail } from '@/utils/sendVerificationEmail';
+// import { sendVerificationEmail } from '@/utils/sendVerificationEmail';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -282,7 +282,7 @@ const SignUp = ({ users }: Users) => {
         await create(data); // used to create() user with parameter of data from form: email, password, etc.
         setModalVis(true);
         await sleep(2000);
-        await sendVerificationEmail(data);
+        // await sendVerificationEmail(data);
         setIsButtonLoading(false);
         toast.current?.show({
           severity: 'info',

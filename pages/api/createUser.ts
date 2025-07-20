@@ -1,31 +1,35 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from 'next';
 import supabase from '@/utils/supabase/supabaseClient';
 
-import prisma from '@/utils/prisma';
 // import { PrismaClient } from '@prisma/client';
 
-import { hash } from 'bcrypt';
+type DataRes = {
+  message: string;
+  email?: string;
+};
 
-async function createHashedPassword(hashLength: number, password: string) {
-  const hashedPassword = await hash(password, hashLength);
-  return hashedPassword;
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse<DataRes>,
 ) {
-  if (req.method == 'POST') {
-    if (!req.body) {
-      return res
-        .status(400)
-        .send({ message: 'Bad request: request body is empty' });
-    }
-    const { userName, userEmail, userPassword, companyName, city } = req.body;
-    const userHashedPassword = await createHashedPassword(12, userPassword);
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Only POST requests are allowed' });
+  }
 
-    try {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res
+      .status(400)
+      .json({ message: 'Bad request: missing email or password' });
+  }
+
+  try {
       // const client = await clientPromise;
       // const db = client.db('beaute-du-geste');
       // const collection = db.collection('users');
@@ -45,19 +49,25 @@ export default async function handler(
 
       // const result = await collection.insertOne(data);
 
-      const { data, error } = await supabase.auth.signUp({
-        email: userEmail,
-        password: userHashedPassword,
-      })      
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      res.status(200).json({ message: 'Unverified user created' });
-    } catch (error) {
-      return res
-        .status(500)
-        .json({ message: 'Unverified user not created' + error });
+    if (error) {
+      await wait(2500); // anti-bruteforce
+      console.log('Login failed:', error.message);
+      return res.status(401).json({ message: 'Invalid credentials' });
     }
-  } else {
-    res.status(405).send({ message: 'Only POST requests allowed' });
-    return;
+
+    return res.status(200).json({
+      message: 'User successfully signed in',
+      email: data.user?.email,
+    });
+  } catch (err: any) {
+    console.error('Unexpected login error:', err);
+    return res
+      .status(500)
+      .json({ message: 'Unexpected error during sign in' });
   }
 }
