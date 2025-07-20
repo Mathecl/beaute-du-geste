@@ -199,9 +199,12 @@ const SignUp = ({ users }: Users) => {
   };
   async function create(data: FormData) {
     try {
-      console.log(data);
+      // console.log(data);
       fetch(createUserUrl, {
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          email: data.userEmail,
+          password: data.userPassword,
+        }),
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
