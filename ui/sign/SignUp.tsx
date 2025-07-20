@@ -199,6 +199,7 @@ const SignUp = ({ users }: Users) => {
   };
   async function create(data: FormData) {
     try {
+      console.log(data);
       fetch(createUserUrl, {
         body: JSON.stringify(data),
         headers: {
