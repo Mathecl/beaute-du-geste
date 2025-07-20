@@ -49,6 +49,8 @@ export default async function handler(
 
       // const result = await collection.insertOne(data);
 
+    console.log('Supabase auth exists:', !!supabase.auth);
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
