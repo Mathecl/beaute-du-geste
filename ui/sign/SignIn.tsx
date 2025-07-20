@@ -69,55 +69,34 @@ const SignIn = ({ users }: Users) => {
   });
 
   async function create(data: FormData) {
+    const { userEmail, userPassword } = data;
+  
     if (
-      data.userEmail.length > 6 &&
-      data.userPassword.length >= 6 &&
-      data.userEmail.includes('@') &&
-      data.userEmail.includes('.')
+      userEmail.length > 6 &&
+      userPassword.length >= 6 &&
+      userEmail.includes('@') &&
+      userEmail.includes('.')
     ) {
-      // Sign in user
-      try {
-        const result = await signIn({
-          email: data.userEmail,
-          password: data.userPassword,
-        }).then(() =>
-          // clear the form
-          setForm({
-            userEmail: '',
-            userPassword: '',
-            id: '',
-          }),
-        );
-        await result;
-        const json = await result.json();
-        if (json.accessToken) {
-          await supabase.auth.setSession({
-            access_token: json.accessToken,
-            refresh_token: json.refreshToken, // tu dois aussi renvoyer ce champ
-          });
-        showSuccess();
-        window.location.replace('/profile')
-
-        // Automatically route based on company name from searchParams
-        // if (
-        //   companyNameFromSearchParam &&
-        //   companyNameFromSearchParam !== null &&
-        //   companyNameFromSearchParam !== undefined
-        // ) {
-        //   window.location.replace(
-        //     '/unicash/' + companyNameFromSearchParam.toLowerCase(),
-        //   );
-        // } else {
-        //   window.location.replace('/');
-        // }
-      } catch (error) {
+      setIsButtonLoading(true);
+  
+      const { data: signInData, error } = await supabase.auth.signInWithPassword({
+        email: userEmail,
+        password: userPassword,
+      });
+  
+      setIsButtonLoading(false);
+  
+      if (error) {
+        console.error('Erreur de connexion :', error.message);
         showError();
-        return error;
+      } else if (signInData?.user) {
+        showSuccess();
+        window.location.replace('/profile');
       }
     } else {
       showError();
     }
-  }
+  }  
 
   const handleSubmit = async (data: FormData) => {
     try {
