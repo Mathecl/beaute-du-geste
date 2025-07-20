@@ -90,17 +90,17 @@ const SignIn = ({ users }: Users) => {
         showSuccess();
 
         // Automatically route based on company name from searchParams
-        if (
-          companyNameFromSearchParam &&
-          companyNameFromSearchParam !== null &&
-          companyNameFromSearchParam !== undefined
-        ) {
-          window.location.replace(
-            '/unicash/' + companyNameFromSearchParam.toLowerCase(),
-          );
-        } else {
-          window.location.replace('/');
-        }
+        // if (
+        //   companyNameFromSearchParam &&
+        //   companyNameFromSearchParam !== null &&
+        //   companyNameFromSearchParam !== undefined
+        // ) {
+        //   window.location.replace(
+        //     '/unicash/' + companyNameFromSearchParam.toLowerCase(),
+        //   );
+        // } else {
+        //   window.location.replace('/');
+        // }
       } catch (error) {
         showError();
         return error;
