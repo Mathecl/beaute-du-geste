@@ -51,7 +51,7 @@ export default async function handler(
 
     console.log('Supabase auth exists:', !!supabase.auth);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signUp({ // signInWithPassword
       email,
       password,
     });
