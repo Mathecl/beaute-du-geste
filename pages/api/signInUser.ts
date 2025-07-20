@@ -180,31 +180,27 @@ export default async function handler(
 
       //   await redisSet(userFinalPrismaName, jwtPayload, 'userMngmt');
 
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email: userFilledEmail,
-          password: userFilledPassword,
-        })      
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: userFilledEmail,
+        password: userFilledPassword,
+      });
 
-        res.status(200).json({
-          // name: userPrismaName,
-          // email: userFilledEmail,
-          // password: userFilledPassword,
-          // pincode: userPrismaPinCode,
-          // role: userPrismaRole,
-          // subscription: userPrismaSubscription,
-          // verified: userPrismaVerified,
-          message: 'User successfully signed in',
-        });
-      } else {
-        wait(2500).then(() => {
-          console.log('Password incorrect: anti bruteforce...');
-        });
+      if (error) {
+        await wait(2500);
+        console.log('Incorrect login: anti-bruteforce...');
         return res
-          .status(500)
-          .json({ message: 'User not signed in: bad password' });
+          .status(401)
+          .json({ message: 'User not signed in: bad credentials' });
       }
+
+      return res.status(200).json({
+        message: 'User successfully signed in',
+        email: data?.user?.email,
+      });
     } catch (error) {
-      return res.status(500).json({ message: 'User not signed in' + error });
+      return res
+        .status(500)
+        .json({ message: 'User not signed in: ' + (error as string) });
     }
   } else {
     res.status(405).json({ message: 'Only POST requests are allowed' });
