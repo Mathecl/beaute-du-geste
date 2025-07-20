@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { User } from '@supabase/supabase-js';
-import { supabase } from '@/utils/supabase/supabaseClient';
+import supabase from '@/utils/supabase/supabaseClient';
 import { SkeletonCard } from '@/ui/SkeletonCard';
 
 export default function Profile() {
