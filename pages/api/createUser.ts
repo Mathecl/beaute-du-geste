@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import supabase from '@/utils/supabase/supabaseClient';
+
 import prisma from '@/utils/prisma';
 // import { PrismaClient } from '@prisma/client';
 
@@ -24,34 +26,29 @@ export default async function handler(
     const userHashedPassword = await createHashedPassword(12, userPassword);
 
     try {
-      if (companyName == "TheBrother's" || companyName == 'TheBrothers') {
-        await prisma.user.create({
-          data: {
-            name: userName,
-            email: userEmail,
-            password: userHashedPassword,
-            company: companyName,
-            city: city,
-            role: 'consumer',
-            subscription: 'free',
-            verified: false,
-            approved: true,
-          },
-        });
-      } else {
-        await prisma.user.create({
-          data: {
-            name: userName,
-            email: userEmail,
-            password: userHashedPassword,
-            company: companyName,
-            city: city,
-            role: 'employee',
-            subscription: 'free',
-            verified: false,
-          },
-        });
-      }
+      // const client = await clientPromise;
+      // const db = client.db('beaute-du-geste');
+      // const collection = db.collection('users');
+      // const data = {
+      //   data: {
+      //     name: userName,
+      //     email: userEmail,
+      //     password: userHashedPassword,
+      //     company: companyName,
+      //     city: city,
+      //     role: 'consumer',
+      //     subscription: 'free',
+      //     verified: false,
+      //     approved: true,
+      //   },
+      // }
+
+      // const result = await collection.insertOne(data);
+
+      const { data, error } = await supabase.auth.signUp({
+        email: userEmail,
+        password: userHashedPassword,
+      })      
 
       res.status(200).json({ message: 'Unverified user created' });
     } catch (error) {
