@@ -87,7 +87,14 @@ const SignIn = ({ users }: Users) => {
           }),
         );
         await result;
+        const json = await result.json();
+        if (json.accessToken) {
+          await supabase.auth.setSession({
+            access_token: json.accessToken,
+            refresh_token: json.refreshToken, // tu dois aussi renvoyer ce champ
+          });
         showSuccess();
+        window.location.replace('/profile')
 
         // Automatically route based on company name from searchParams
         // if (
