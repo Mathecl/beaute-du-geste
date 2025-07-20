@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useRef } from 'react';
 
+import supabase from '@/utils/supabase/supabaseClient';
+
 import { AppContext, appContext } from '@/types/appContext';
 import { signIn } from '@/utils/auth/signIn';
 
