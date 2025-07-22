@@ -62,7 +62,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
-  const heroImages = ["/images/hero-1.jpg", "/images/hero-2.jpg", "/images/hero-3.jpg"]
+  const heroImages = ["/huile.jpeg", "/face.jpeg", "/dos.jpeg"]
 
   useEffect(() => {
     const timer = setInterval(() => {
