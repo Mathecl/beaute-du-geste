@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { AppContext, appContext } from '@/types/appContext';
 
-import Masquot from '../../../public/masquotteHappy.png';
+// import Masquot from '../../../public/masquotteHappy.png';
 
 export default function PaymentSuccess() {
   // App Context
@@ -127,7 +127,7 @@ export default function PaymentSuccess() {
         <div className="lg:w-1/2">
           <Suspense fallback={<p>Chargement de l'image...</p>}>
             <div className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last">
-              <Image src={Masquot} alt="Masquot" />
+              {/* <Image src={Masquot} alt="Masquot" /> */}
             </div>
           </Suspense>
         </div>

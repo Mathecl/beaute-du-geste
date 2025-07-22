@@ -6,8 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import Masquot from '../public/masquotSad.png';
-
 export default function NotFound() {
   const router = useRouter();
 
@@ -44,7 +42,7 @@ export default function NotFound() {
         <div className="lg:w-1/2">
           <Suspense fallback={<p>Chargement de l'image...</p>}>
             <div className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last">
-              <Image src={Masquot} alt="Masquot" />
+              {/* <Image src={Masquot} alt="Masquot" /> */}
             </div>
           </Suspense>
         </div>
