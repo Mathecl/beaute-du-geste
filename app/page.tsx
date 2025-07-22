@@ -200,13 +200,15 @@ export default function Home() {
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            <Image
-              src={image || "/placeholder.svg"}
-              alt={`Hero image ${index + 1}`}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
+            <Suspense fallback={<p>Chargement des images...</p>}>
+              <Image
+                src={image || "/placeholder.svg"}
+                alt={`Hero image ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            </Suspense>
           </div>
         ))}
         <div className="absolute inset-0 bg-charcoal/30" />

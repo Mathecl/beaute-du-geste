@@ -56,12 +56,12 @@ export default function Layout({ children }) {
         <main id="children">
           {pathname === '/' && isMobile != true && (
             <div className="video-container">
-              <Suspense fallback={<p>Chargement de la video...</p>}>
+              {/* <Suspense fallback={<p>Chargement de la video...</p>}>
                 <video autoPlay muted loop playsInline>
                   <source src="/video/accueil.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-              </Suspense>
+              </Suspense> */}
             </div>
           )}
 
