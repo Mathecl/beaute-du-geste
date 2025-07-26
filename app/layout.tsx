@@ -78,6 +78,9 @@ export default function RootLayout({ children }: IProps) {
     <html lang="fr" className={`${playfair.variable} ${dmSans.variable}`}>
       <head>
         <title>{process.env.NEXT_APP_NAME}</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
         <Provider>

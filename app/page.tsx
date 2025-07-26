@@ -62,7 +62,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
-  const heroImages = ["/hero-1.jpg", "/hero-2.jpg", "/hero-3.jpg"]
+  const heroImages = ["/hero  1.jpg", "/hero2.jpg", "/hero3.jpg"]
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -250,14 +250,14 @@ export default function Home() {
             </p>
           </div>
           <div className="relative h-96 rounded-lg overflow-hidden">
-            <Image src="/images/kobido-massage.jpg" alt="Soin Kobido traditionnel" fill className="object-cover" />
+            <Image src="/dos.jpeg" alt="Soin Kobido traditionnel" fill className="object-cover" />
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-96 rounded-lg overflow-hidden md:order-1">
             <Image
-              src="/images/facial-treatment.jpg"
+              src="/face.jpeg"
               alt="Bienfaits du massage facial Kobido"
               fill
               className="object-cover"
@@ -302,7 +302,7 @@ export default function Home() {
       <div className="container mx-auto max-w-4xl">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <div className="relative h-48 rounded-lg overflow-hidden">
-            <Image src="/images/spa-hands.jpg" alt="Gestes délicats" fill className="object-cover" />
+            <Image src="/huile.jpeg" alt="Gestes délicats" fill className="object-cover" />
           </div>
           <div className="text-center">
             <h3 className="text-2xl font-playfair font-bold text-charcoal mb-4">L'Art du Toucher</h3>
@@ -312,7 +312,7 @@ export default function Home() {
             </p>
           </div>
           <div className="relative h-48 rounded-lg overflow-hidden">
-            <Image src="/images/zen-stones.jpg" alt="Sérénité et équilibre" fill className="object-cover" />
+            <Image src="/dos.jpeg" alt="Sérénité et équilibre" fill className="object-cover" />
           </div>
         </div>
       </div>
