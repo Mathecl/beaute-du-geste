@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { Phone, Mail, MapPin, Menu, X } from "lucide-react"
+import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -325,17 +325,24 @@ export default function Home() {
 
         <Card className="max-w-md mx-auto bg-cream border-gold/20 shadow-lg">
           <CardContent className="p-8">
-            <h3 className="text-2xl font-playfair font-bold text-charcoal mb-4">Soin Kobido Complet</h3>
-            <div className="text-4xl font-bold text-gold mb-4">85€</div>
+            <h3 className="text-2xl font-playfair font-bold text-charcoal mb-4">Soin Kobido® Complet</h3>
+            <div className="text-4xl font-bold text-gold mb-4">120€</div>
             <p className="text-charcoal mb-6 leading-relaxed">
-              Séance de 60 minutes incluant un soin complet du visage, du cou et des épaules. Un moment d'exception
-              pour retrouver éclat et sérénité.
+              Séance de 60 minutes incluant le rituel Kobido® complet avec oshibori traditionnel. Un moment
+              d'exception pour retrouver éclat et sérénité.
             </p>
-            <div className="space-y-2 text-sm text-charcoal/80">
+            <div className="space-y-2 text-sm text-charcoal/80 mb-4">
+              <p>• Rituel d'accueil avec oshibori</p>
               <p>• Nettoyage et préparation de la peau</p>
-              <p>• Massage Kobido traditionnel</p>
-              <p>• Soin du cou et des épaules</p>
+              <p>• Massage Kobido® traditionnel du visage</p>
               <p>• Masque hydratant personnalisé</p>
+            </div>
+            <div className="bg-gold/10 p-3 rounded-lg">
+              <p className="text-xs text-charcoal font-medium">
+                🎁 Première séance : serviette + fiole de soin offertes
+                <br />
+                <span className="text-charcoal/60">(puis disponibles sur commande)</span>
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -343,68 +350,54 @@ export default function Home() {
     </section>
 
     {/* Section Contact */}
-    <section id="contact" className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-playfair font-bold text-charcoal text-center mb-12">Contact</h2>
+      <section id="contact" className="py-20 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-charcoal text-center mb-12">Contact</h2>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-playfair font-bold text-charcoal mb-6">Prenons contact</h3>
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center space-x-3">
-                <Phone className="text-gold" size={20} />
-                <span className="text-charcoal">06 12 34 56 78</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="text-gold" size={20} />
-                <span className="text-charcoal">contact@beaute-dugeste.fr</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="text-gold" size={20} />
-                <span className="text-charcoal">Marseille - Serre-Chevalier, sur rendez-vous</span>
-              </div>
-            </div>
-
-            <div className="bg-rose/30 p-6 rounded-lg">
-              <h4 className="font-bold text-charcoal mb-2">Horaires</h4>
-              <p className="text-charcoal text-sm">
-                Du mardi au samedi
-                <br />
-                9h00 - 19h00
-                <br />
-                Sur rendez-vous uniquement
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-playfair font-bold text-charcoal mb-6">Créer un compte</h3>
-            <form className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Input placeholder="Prénom" className="border-gray-light focus:border-gold" />
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-playfair font-bold text-charcoal mb-6">Prenons contact</h3>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center justify-center space-x-3">
+                  <Phone className="text-gold" size={20} />
+                  <span className="text-charcoal">06 12 34 56 78</span>
                 </div>
-                <div>
-                  <Input placeholder="Nom" className="border-gray-light focus:border-gold" />
+                <div className="flex items-center justify-center space-x-3">
+                  <Mail className="text-gold" size={20} />
+                  <span className="text-charcoal">contact@beaute-dugeste.fr</span>
+                </div>
+                <div className="flex items-center justify-center space-x-3">
+                  <Instagram className="text-gold" size={20} />
+                  <span className="text-charcoal">@beautedugeste</span>
+                </div>
+                <div className="flex items-center justify-center space-x-3">
+                  <MapPin className="text-gold" size={20} />
+                  <span className="text-charcoal">Marseille | Serre-Chevalier, sur rendez-vous</span>
                 </div>
               </div>
-              <div>
-                <Input type="email" placeholder="Adresse email" className="border-gray-light focus:border-gold" />
+
+              <div className="bg-rose/30 p-6 rounded-lg mb-8">
+                <h4 className="font-bold text-charcoal mb-2">Horaires</h4>
+                <p className="text-charcoal text-sm">
+                  Du mardi au samedi
+                  <br />
+                  9h00 - 19h00
+                  <br />
+                  Sur rendez-vous uniquement
+                </p>
               </div>
-              <div>
-                <Input type="tel" placeholder="Numéro de téléphone" className="border-gray-light focus:border-gold" />
-              </div>
-              <Button className="w-full bg-gold hover:bg-gold/90 text-charcoal font-semibold">
-                Créer mon compte
+
+              <Button
+                onClick={() => (window.location.href = "/contact")}
+                className="bg-gold hover:bg-gold/90 text-charcoal font-semibold shadow-lg px-8 py-3 text-lg flex items-center gap-2 mx-auto"
+              >
+                <MessageSquare size={20} />
+                Demande de contact & devis
               </Button>
-              <p className="text-xs text-charcoal/60 text-center mt-3">
-                En créant votre compte, vous pourrez réserver vos soins en ligne et accéder à votre espace personnel.
-              </p>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     {/* Footer */}
     <footer className="bg-charcoal text-cream py-8 px-4">
@@ -418,7 +411,7 @@ export default function Home() {
       <Button
         size="lg"
         className="bg-gold hover:bg-gold/90 text-charcoal font-semibold shadow-lg rounded-full px-6 py-3"
-        onClick={() => setIsBookingModalOpen(true)}
+        onClick={() => scrollToSection("contact")}
       >
         Prendre soin de soi
       </Button>
@@ -427,92 +420,5 @@ export default function Home() {
     {/* Booking Modal */}
     <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
   </div>
-    // <div>
-    //   <div className="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-900">
-    //     <main className="flex-1">
-    //       <section className="relative w-full py-4 md:py-8 lg:py-12 xl:py-24 2xl:py-32">
-    //         <div className="container px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10">
-    //           <div className="grid grid-cols-1 gap-3 md:grid-cols-1 md:gap-4 lg:grid-cols-2 lg:gap-6 xl:grid-cols-2 xl:gap-8 2xl:grid-cols-2 2xl:gap-12">
-    //             <div className="flex flex-col justify-center space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 2xl:space-y-6">
-    //               <div className="h-full w-full space-y-1 rounded rounded-md border border-gray-800 bg-[#79018c] bg-opacity-20 bg-clip-padding p-5 shadow-md backdrop-blur-sm backdrop-filter md:space-y-2 lg:space-y-3 xl:space-y-4 2xl:space-y-5">
-    //                 <h1
-    //                   className={`${
-    //                     isMobile ? 'text-dark' : 'text-white'
-    //                   } text-xl font-bold tracking-tighter md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl`}
-    //                 >
-    //                   <span style={{ color: '#00fc71' }}>Beauté du geste</span>,
-    //                   c'est l'avenir de la gestion
-    //                   <br />
-    //                   d'entreprise à portée de clic.
-    //                 </h1>
-    //                 <br />
-    //                 <button onClick={openSignUp}>S'inscrire</button>
-    //                 <button onClick={scrollToSolutions}>En savoir plus</button>
-    //               </div>
-    //             </div>
-    //             <div className="flex flex-col justify-between">
-    //               <div className="relative aspect-[16/9]">
-    //                 <Suspense fallback={<p>Chargement de la video...</p>}>
-    //                   <video
-    //                     src="/video/accueilAnimation.mp4"
-    //                     className="absolute inset-0 h-full w-full object-cover"
-    //                     loop
-    //                     autoPlay
-    //                     muted
-    //                   />
-    //                 </Suspense>
-    //               </div>
-    //               <br />
-    //               {/* <div className="space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4 2xl:space-y-5">
-    //                 <h2
-    //                   className={`${
-    //                     isMobile ? 'text-dark' : 'text-white'
-    //                   } text-lg font-bold tracking-tighter md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl`}
-    //                 >
-    //                   Notre engagement repose sur la{' '}
-    //                   <span style={{ color: '#00fc71' }}>transparence</span>, la{' '}
-    //                   <br />
-    //                   <span style={{ color: '#00fc71' }}>
-    //                     responsabilité
-    //                   </span>{' '}
-    //                   et la <span style={{ color: '#00fc71' }}>générosité</span>
-    //                   .
-    //                 </h2>
-    //                 <p
-    //                   className={`${
-    //                     isMobile ? 'text-dark' : 'text-white'
-    //                   } max-w-[600px] md:text-lg lg:text-xl 2xl:text-3xl/relaxed`}
-    //                 >
-    //                   Unigate s'engage à être un modèle de changement social
-    //                   positif, en utilisant la technologie pour améliorer les
-    //                   entreprises et la société dans son ensemble. Nous croyons
-    //                   en un avenir où le succès économique va de pair avec la
-    //                   responsabilité sociale, et nous sommes déterminés à
-    //                   incarner cette vision.
-    //                 </p>
-    //               </div> */}
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </section>
-
-    //       {/* ---- */}
-
-    //       <section className="bg-white dark:bg-gray-900">
-    //         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
-    //           <div className="mx-auto max-w-screen-sm text-center">
-    //             <h2 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-gray-900">
-    //               Commençons à collaborer ensemble
-    //             </h2>
-    //             <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
-    //               Essayez gratuitement Beauté du geste
-    //             </p>
-    //             <button onClick={openSignUp}>Commencer</button>
-    //           </div>
-    //         </div>
-    //       </section>
-    //     </main>
-    //   </div>
-    // </div>
   );
 }
