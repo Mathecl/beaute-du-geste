@@ -45,7 +45,7 @@ export default function ContactPage() {
       toast.current?.show({
         severity: "warn",
         summary: "Champs manquants",
-        detail: "Tous les champs marqués d’un * sont obligatoires.",
+        detail: "Tous les champs marqués d'un * sont obligatoires.",
         life: 4000,
       })
       return
@@ -109,16 +109,16 @@ export default function ContactPage() {
       <Toast ref={toast} />
 
       {/* Header */}
-      <header className="bg-cream border-b border-gray-light py-6">
+      <header className="bg-cream border-b border-gray-light py-8">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Logo size="md" />
-          <h1 className="text-3xl font-advent-pro font-bold text-charcoal">Contact & Devis</h1>
+          <Logo size="lg" />
+          <h1 className="text-4xl font-advent-pro font-bold text-charcoal">Contact & Devis</h1>
           <Button
             onClick={() => (window.location.href = "/")}
             variant="outline"
-            className="border-gold text-charcoal hover:bg-gold/10 flex items-center gap-2"
+            className="border-gold text-charcoal hover:bg-gold/10 flex items-center gap-2 text-lg px-6 py-3"
           >
-            <ArrowLeft size={16} />
+            <ArrowLeft size={18} />
             Retour au site
           </Button>
         </div>
@@ -129,31 +129,31 @@ export default function ContactPage() {
           {/* Informations de contact */}
           <Card className="bg-cream border-gold/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal">Informations</CardTitle>
+              <CardTitle className="text-3xl font-advent-pro font-bold text-charcoal">Informations</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Phone className="text-gold" size={20} />
-                  <span className="text-charcoal">06 12 34 56 78</span>
+            <CardContent className="space-y-8">
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <Phone className="text-gold" size={24} />
+                  <span className="text-charcoal text-lg">06 12 34 56 78</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="text-gold" size={20} />
-                  <span className="text-charcoal">contact@beaute-dugeste.fr</span>
+                <div className="flex items-center space-x-4">
+                  <Mail className="text-gold" size={24} />
+                  <span className="text-charcoal text-lg">contact@beaute-dugeste.fr</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Instagram className="text-gold" size={20} />
-                  <span className="text-charcoal">@beautedugeste</span>
+                <div className="flex items-center space-x-4">
+                  <Instagram className="text-gold" size={24} />
+                  <span className="text-charcoal text-lg">@beautedugeste</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="text-gold" size={20} />
-                  <span className="text-charcoal">Marseille | Serre-Chevalier</span>
+                <div className="flex items-center space-x-4">
+                  <MapPin className="text-gold" size={24} />
+                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier</span>
                 </div>
               </div>
 
-              <div className="bg-rose/30 p-6 rounded-lg">
-                <h4 className="font-bold text-charcoal mb-2">Horaires</h4>
-                <p className="text-charcoal text-sm">
+              <div className="bg-rose/30 p-8 rounded-lg">
+                <h4 className="font-bold text-charcoal mb-3 text-xl">Horaires</h4>
+                <p className="text-charcoal text-lg">
                   Du mardi au samedi
                   <br />
                   9h00 - 19h00
@@ -162,9 +162,9 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="bg-gold/10 p-6 rounded-lg">
-                <h4 className="font-bold text-charcoal mb-2">Délai de réponse</h4>
-                <p className="text-charcoal text-sm">
+              <div className="bg-gold/10 p-8 rounded-lg">
+                <h4 className="font-bold text-charcoal mb-3 text-xl">Délai de réponse</h4>
+                <p className="text-charcoal text-lg">
                   Je m'engage à vous répondre dans les 24h pour toute demande de renseignement ou de devis.
                 </p>
               </div>
@@ -174,24 +174,54 @@ export default function ContactPage() {
           {/* Formulaire de contact */}
           <Card className="bg-cream border-gold/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal">
+              <CardTitle className="text-3xl font-advent-pro font-bold text-charcoal">
                 Demande de contact & devis
               </CardTitle>
             </CardHeader>
             <CardContent>
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Input name="firstName" placeholder="Prénom *" value={formData.firstName} onChange={handleInputChange} required />
-                    <Input name="lastName" placeholder="Nom *" value={formData.lastName} onChange={handleInputChange} required />
+                    <Input
+                      name="firstName"
+                      placeholder="Prénom *"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
+                      className="text-lg py-3"
+                    />
+                    <Input
+                      name="lastName"
+                      placeholder="Nom *"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
+                      className="text-lg py-3"
+                    />
                   </div>
-                  <Input name="email" type="email" placeholder="Adresse email *" value={formData.email} onChange={handleInputChange} required />
-                  <Input name="phone" type="tel" placeholder="Numéro de téléphone *" value={formData.phone} onChange={handleInputChange} required />
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="Adresse email *"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="text-lg py-3"
+                  />
+                  <Input
+                    name="phone"
+                    type="tel"
+                    placeholder="Numéro de téléphone *"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="text-lg py-3"
+                  />
                   <select
                     name="serviceType"
                     value={formData.serviceType}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-light rounded-md focus:border-gold focus:outline-none bg-cream"
+                    className="w-full px-4 py-3 border border-gray-light rounded-md focus:border-gold focus:outline-none bg-cream text-lg"
                     required
                   >
                     <option value="">Type de demande *</option>
@@ -200,32 +230,42 @@ export default function ContactPage() {
                     <option value="evenement-prive">Événement privé</option>
                     <option value="autre">Autre demande</option>
                   </select>
-                  <Input name="subject" placeholder="Objet de votre demande *" value={formData.subject} onChange={handleInputChange} required />
+                  <Input
+                    name="subject"
+                    placeholder="Objet de votre demande *"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    className="text-lg py-3"
+                  />
                   <Textarea
                     name="message"
                     placeholder="Votre message (décrivez vos besoins, vos disponibilités, etc.) *"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
+                    className="text-lg py-3 min-h-[120px]"
                   />
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-3 transition-all flex items-center gap-2 justify-center"
+                    className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-4 transition-all flex items-center gap-2 justify-center text-lg"
                   >
-                    <Send size={18} />
+                    <Send size={20} />
                     {isLoading ? "Envoi en cours..." : "Envoyer ma demande"}
                   </Button>
-                  <p className="text-xs text-charcoal/60 text-center">
+                  <p className="text-sm text-charcoal/60 text-center">
                     * Champs obligatoires. Vos données sont traitées de manière confidentielle.
                   </p>
                 </form>
               ) : (
-                <div className="text-center py-8">
-                  <div className="text-6xl mb-4">✨</div>
-                  <h3 className="text-xl font-advent-pro font-bold text-charcoal mb-2">Message envoyé !</h3>
-                  <p className="text-charcoal/70 mb-4">Merci pour votre demande. Je vous répondrai dans les plus brefs délais.</p>
-                  <p className="text-sm text-charcoal/60">
+                <div className="text-center py-12">
+                  <div className="text-8xl mb-6">✨</div>
+                  <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Message envoyé !</h3>
+                  <p className="text-charcoal/70 mb-6 text-lg">
+                    Merci pour votre demande. Je vous répondrai dans les plus brefs délais.
+                  </p>
+                  <p className="text-base text-charcoal/60">
                     Vous recevrez une confirmation par email à l'adresse indiquée.
                   </p>
                 </div>

@@ -229,14 +229,14 @@ export default function PlanningManagement() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Header */}
-      <header className="bg-cream border-b border-gray-light py-6">
+      <header className="bg-cream border-b border-gray-light py-8">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Logo size="md" />
-          <h1 className="text-3xl font-advent-pro font-bold text-charcoal">Gestion du Planning</h1>
+          <Logo size="lg" />
+          <h1 className="text-4xl font-advent-pro font-bold text-charcoal">Gestion du Planning</h1>
           <Button
             onClick={() => (window.location.href = "/")}
             variant="outline"
-            className="border-gold text-charcoal hover:bg-gold/10"
+            className="border-gold text-charcoal hover:bg-gold/10 text-lg px-6 py-3"
           >
             Retour au site
           </Button>
@@ -248,39 +248,39 @@ export default function PlanningManagement() {
           {/* Calendrier */}
           <Card className="bg-cream border-gold/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center justify-between">
+              <CardTitle className="text-3xl font-advent-pro font-bold text-charcoal flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Calendar size={24} />
+                  <Calendar size={28} />
                   Calendrier
                 </div>
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => navigateMonth("prev")}
-                    className="p-2 hover:bg-gold/20 rounded-lg transition-colors"
+                    className="p-3 hover:bg-gold/20 rounded-lg transition-colors text-xl"
                   >
                     ←
                   </button>
                   <button
                     onClick={goToCurrentMonth}
-                    className="w-6 h-6 rounded-full bg-blue-500 hover:bg-blue-600 transition-colors flex items-center justify-center relative shadow-sm"
+                    className="w-8 h-8 rounded-full bg-blue-500 hover:bg-blue-600 transition-colors flex items-center justify-center relative shadow-sm"
                     title="Revenir au mois actuel"
                   >
-                    <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-blue-800 rounded-full"></div>
+                    <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-blue-800 rounded-full"></div>
                     </div>
                   </button>
-                  <span className="text-lg font-medium capitalize">{getMonthName()}</span>
+                  <span className="text-xl font-medium capitalize">{getMonthName()}</span>
                   <button
                     onClick={() => navigateMonth("next")}
-                    className="p-2 hover:bg-gold/20 rounded-lg transition-colors"
+                    className="p-3 hover:bg-gold/20 rounded-lg transition-colors text-xl"
                   >
                     →
                   </button>
                 </div>
               </CardTitle>
               {selectedDates.length > 0 && (
-                <div className="flex items-center justify-between bg-gold/10 p-3 rounded-lg">
-                  <span className="text-sm text-charcoal">
+                <div className="flex items-center justify-between bg-gold/10 p-4 rounded-lg">
+                  <span className="text-base text-charcoal">
                     {selectedDates.length} jour{selectedDates.length > 1 ? "s" : ""} sélectionné
                     {selectedDates.length > 1 ? "s" : ""}
                   </span>
@@ -288,7 +288,7 @@ export default function PlanningManagement() {
                     onClick={clearSelection}
                     size="sm"
                     variant="outline"
-                    className="text-xs h-6 px-2 bg-transparent"
+                    className="text-sm h-8 px-3 bg-transparent"
                   >
                     Effacer
                   </Button>
@@ -296,15 +296,15 @@ export default function PlanningManagement() {
               )}
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-7 gap-2 text-sm mb-4">
+              <div className="grid grid-cols-7 gap-2 text-base mb-4">
                 {["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"].map((day) => (
-                  <div key={day} className="text-center font-medium text-charcoal/60 py-2">
+                  <div key={day} className="text-center font-medium text-charcoal/60 py-3">
                     {day}
                   </div>
                 ))}
                 {generateDates().map((date, index) => {
                   if (!date) {
-                    return <div key={index} className="h-16"></div>
+                    return <div key={index} className="h-20"></div>
                   }
 
                   const isSelected = selectedDate?.toDateString() === date.toDateString()
@@ -316,7 +316,7 @@ export default function PlanningManagement() {
                     <div
                       key={index}
                       className={`
-                        h-16 rounded-lg border-2 transition-all relative
+                        h-20 rounded-lg border-2 transition-all relative
                         ${
                           isClosed
                             ? "bg-gray-light border-gray-300 cursor-not-allowed"
@@ -331,7 +331,7 @@ export default function PlanningManagement() {
                       `}
                     >
                       {!isClosed && (
-                        <label className="absolute top-1 left-1 w-5 h-5 cursor-pointer">
+                        <label className="absolute top-1 left-1 w-6 h-6 cursor-pointer">
                           <input
                             type="checkbox"
                             checked={isMultiSelected}
@@ -344,7 +344,7 @@ export default function PlanningManagement() {
                         onClick={() => !isClosed && handleDateClick(date)}
                         disabled={isClosed}
                         className={`
-                          w-full h-full flex items-center justify-center text-sm font-medium transition-all
+                          w-full h-full flex items-center justify-center text-base font-medium transition-all
                           ${
                             isClosed
                               ? "text-charcoal/40 cursor-not-allowed"
@@ -370,15 +370,15 @@ export default function PlanningManagement() {
             // Interface pour sélection multiple
             <Card className="bg-cream border-gold/20 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center gap-2">
-                  <CalendarDays size={24} />
+                <CardTitle className="text-3xl font-advent-pro font-bold text-charcoal flex items-center gap-2">
+                  <CalendarDays size={28} />
                   Actions sur {selectedDates.length} jour{selectedDates.length > 1 ? "s" : ""}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="bg-gold/10 p-4 rounded-lg">
-                  <h4 className="font-semibold text-charcoal mb-2">Dates sélectionnées :</h4>
-                  <div className="text-sm text-charcoal/70 space-y-1">
+                <div className="bg-gold/10 p-5 rounded-lg">
+                  <h4 className="font-semibold text-charcoal mb-3 text-lg">Dates sélectionnées :</h4>
+                  <div className="text-base text-charcoal/70 space-y-2">
                     {selectedDates.map((date, index) => (
                       <div key={index}>
                         {date.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short" })}
@@ -388,37 +388,37 @@ export default function PlanningManagement() {
                 </div>
 
                 {/* Boutons d'action pour sélection multiple */}
-                <div className="grid grid-cols-1 gap-3">
+                <div className="grid grid-cols-1 gap-4">
                   <Button
                     onClick={() => applyToSelectedDates("morning")}
                     variant="outline"
-                    className="border-red-400 text-red-600 hover:bg-red-50 flex items-center gap-2 bg-transparent"
+                    className="border-red-400 text-red-600 hover:bg-red-50 flex items-center gap-2 bg-transparent text-lg py-4"
                   >
-                    <Sun size={16} />
+                    <Sun size={18} />
                     Bloquer AMs
                   </Button>
                   <Button
                     onClick={() => applyToSelectedDates("afternoon")}
                     variant="outline"
-                    className="border-red-400 text-red-600 hover:bg-red-50 flex items-center gap-2 bg-transparent"
+                    className="border-red-400 text-red-600 hover:bg-red-50 flex items-center gap-2 bg-transparent text-lg py-4"
                   >
-                    <Moon size={16} />
+                    <Moon size={18} />
                     Bloquer PMs
                   </Button>
                   <Button
                     onClick={() => applyToSelectedDates("fullday")}
                     variant="outline"
-                    className="border-red-400 text-red-600 hover:bg-red-50 flex items-center gap-2 bg-transparent"
+                    className="border-red-400 text-red-600 hover:bg-red-50 flex items-center gap-2 bg-transparent text-lg py-4"
                   >
-                    <X size={16} />
+                    <X size={18} />
                     Bloquer journées
                   </Button>
                   <Button
                     onClick={setDefaultSchedule}
                     variant="outline"
-                    className="border-green-400 text-green-600 hover:bg-green-50 flex items-center gap-2 bg-transparent"
+                    className="border-green-400 text-green-600 hover:bg-green-50 flex items-center gap-2 bg-transparent text-lg py-4"
                   >
-                    <CalendarDays size={16} />
+                    <CalendarDays size={18} />
                     Mise par défaut
                   </Button>
                 </div>
@@ -426,7 +426,7 @@ export default function PlanningManagement() {
                 {actionSelected && (
                   <Button
                     onClick={saveChanges}
-                    className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-3 transition-all mt-4"
+                    className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-4 transition-all mt-4 text-lg"
                   >
                     Confirmer les modifications
                   </Button>
@@ -437,41 +437,41 @@ export default function PlanningManagement() {
             // Interface pour jour unique (existante)
             <Card className="bg-cream border-gold/20 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center justify-between">
+                <CardTitle className="text-3xl font-advent-pro font-bold text-charcoal flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Clock size={24} />
-                    <span className="text-lg">Créneaux du {formatDate(selectedDate)}</span>
+                    <Clock size={28} />
+                    <span className="text-xl">Créneaux du {formatDate(selectedDate)}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => navigateDay("prev")}
-                      className="p-2 hover:bg-gold/20 rounded-lg transition-colors"
+                      className="p-3 hover:bg-gold/20 rounded-lg transition-colors"
                       title="Jour précédent"
                     >
-                      <ChevronLeft size={20} />
+                      <ChevronLeft size={24} />
                     </button>
                     <button
                       onClick={goToToday}
-                      className="w-6 h-6 rounded-full bg-blue-500 hover:bg-blue-600 transition-colors flex items-center justify-center relative shadow-sm"
+                      className="w-8 h-8 rounded-full bg-blue-500 hover:bg-blue-600 transition-colors flex items-center justify-center relative shadow-sm"
                       title="Revenir au jour actuel"
                     >
-                      <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                        <div className="w-1.5 h-1.5 bg-blue-800 rounded-full"></div>
+                      <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-blue-800 rounded-full"></div>
                       </div>
                     </button>
                     <button
                       onClick={() => navigateDay("next")}
-                      className="p-2 hover:bg-gold/20 rounded-lg transition-colors"
+                      className="p-3 hover:bg-gold/20 rounded-lg transition-colors"
                       title="Jour suivant"
                     >
-                      <ChevronRight size={20} />
+                      <ChevronRight size={24} />
                     </button>
                   </div>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Boutons rapides */}
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-3">
                   <Button
                     onClick={toggleMorning}
                     variant="outline"
@@ -480,9 +480,9 @@ export default function PlanningManagement() {
                       isMorningOpen()
                         ? "border-red-400 text-red-600 hover:bg-red-50"
                         : "border-green-400 text-green-600 hover:bg-green-50"
-                    } flex items-center gap-1 bg-transparent text-xs px-2 py-1 h-8`}
+                    } flex items-center gap-1 bg-transparent text-sm px-3 py-2 h-10`}
                   >
-                    <Sun size={12} />
+                    <Sun size={14} />
                     {isMorningOpen() ? "Bloquer AM" : "Ouvrir AM"}
                   </Button>
                   <Button
@@ -493,9 +493,9 @@ export default function PlanningManagement() {
                       isAfternoonOpen()
                         ? "border-red-400 text-red-600 hover:bg-red-50"
                         : "border-green-400 text-green-600 hover:bg-green-50"
-                    } flex items-center gap-1 bg-transparent text-xs px-2 py-1 h-8`}
+                    } flex items-center gap-1 bg-transparent text-sm px-3 py-2 h-10`}
                   >
-                    <Moon size={12} />
+                    <Moon size={14} />
                     {isAfternoonOpen() ? "Bloquer PM" : "Ouvrir PM"}
                   </Button>
                   <Button
@@ -506,29 +506,29 @@ export default function PlanningManagement() {
                       isFullDayOpen()
                         ? "border-red-400 text-red-600 hover:bg-red-50"
                         : "border-green-400 text-green-600 hover:bg-green-50"
-                    } flex items-center gap-1 bg-transparent text-xs px-2 py-1 h-8`}
+                    } flex items-center gap-1 bg-transparent text-sm px-3 py-2 h-10`}
                   >
-                    {isFullDayOpen() ? <X size={12} /> : <CalendarDays size={12} />}
+                    {isFullDayOpen() ? <X size={14} /> : <CalendarDays size={14} />}
                     {isFullDayOpen() ? "Bloquer jour" : "Ouvrir jour"}
                   </Button>
                 </div>
 
                 {/* Liste des créneaux */}
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {timeSlots.map((slot, index) => (
                     <button
                       key={index}
                       onClick={() => toggleTimeSlot(index)}
-                      className={`w-full flex items-center justify-between p-4 rounded-lg border-2 transition-all cursor-pointer hover:scale-[1.02] ${
+                      className={`w-full flex items-center justify-between p-5 rounded-lg border-2 transition-all cursor-pointer hover:scale-[1.02] ${
                         slot.available
                           ? "bg-green-100 border-green-300 hover:bg-green-200"
                           : "bg-red-100 border-red-300 hover:bg-red-200"
                       }`}
                     >
-                      <span className="font-medium text-charcoal text-lg">{slot.time}</span>
+                      <span className="font-medium text-charcoal text-xl">{slot.time}</span>
                       <div
                         className={`
-                          w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all
+                          w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all
                           ${
                             slot.available
                               ? "bg-green-500 border-green-600 text-white"
@@ -536,7 +536,7 @@ export default function PlanningManagement() {
                           }
                         `}
                       >
-                        {slot.available ? <Check size={16} /> : <X size={16} />}
+                        {slot.available ? <Check size={18} /> : <X size={18} />}
                       </div>
                     </button>
                   ))}
@@ -545,7 +545,7 @@ export default function PlanningManagement() {
                 {/* Bouton de sauvegarde */}
                 <Button
                   onClick={saveChanges}
-                  className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-3 transition-all"
+                  className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-4 transition-all text-lg"
                 >
                   Enregistrer les modifications
                 </Button>
@@ -556,9 +556,9 @@ export default function PlanningManagement() {
             <Card className="bg-cream border-gold/20 shadow-lg">
               <CardContent className="flex items-center justify-center h-64">
                 <div className="text-center text-charcoal/60">
-                  <Calendar size={48} className="mx-auto mb-4 opacity-50" />
-                  <p className="text-lg">Sélectionnez une date ou cochez plusieurs jours</p>
-                  <p className="text-sm mt-2">pour gérer les créneaux horaires</p>
+                  <Calendar size={56} className="mx-auto mb-4 opacity-50" />
+                  <p className="text-xl">Sélectionnez une date ou cochez plusieurs jours</p>
+                  <p className="text-base mt-2">pour gérer les créneaux horaires</p>
                 </div>
               </CardContent>
             </Card>
@@ -567,10 +567,10 @@ export default function PlanningManagement() {
 
         {/* Message de confirmation */}
         {showConfirmation && (
-          <div className="fixed bottom-6 right-6 bg-gold text-charcoal px-6 py-3 rounded-lg shadow-lg animate-in slide-in-from-bottom-2 duration-300">
+          <div className="fixed bottom-6 right-6 bg-gold text-charcoal px-8 py-4 rounded-lg shadow-lg animate-in slide-in-from-bottom-2 duration-300">
             <div className="flex items-center gap-2">
-              <Check size={20} />
-              <span className="font-medium">Modifications enregistrées avec succès !</span>
+              <Check size={24} />
+              <span className="font-medium text-lg">Modifications enregistrées avec succès !</span>
             </div>
           </div>
         )}

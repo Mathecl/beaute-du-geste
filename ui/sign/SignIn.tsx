@@ -1,127 +1,115 @@
-'use client';
-import React, { useState, useRef } from 'react';
+"use client"
+import { useState, useRef } from "react"
 
-import supabase from '@/utils/supabase/supabaseClient';
+import supabase from "@/utils/supabase/supabaseClient"
 
-import { AppContext, appContext } from '@/types/appContext';
-import { signIn } from '@/utils/auth/signIn';
+import { useSearchParams } from "next/navigation"
+import Link from "next/link"
 
-import { useParams, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-
-import { InputText } from 'primereact/inputtext';
-import { Password } from 'primereact/password';
-import { Toast } from 'primereact/toast';
-import { Button } from 'primereact/button';
+import { InputText } from "primereact/inputtext"
+import { Password } from "primereact/password"
+import { Toast } from "primereact/toast"
+import { Button } from "primereact/button"
 
 // import '@/styles/sign.css';
 
 interface Users {
   users: {
-    userEmail: string;
-    userPassword: string;
-    id: string;
-  }[];
+    userEmail: string
+    userPassword: string
+    id: string
+  }[]
 }
 interface FormData {
-  userEmail: string;
-  userPassword: string;
-  id: string;
+  userEmail: string
+  userPassword: string
+  id: string
 }
 
 const SignIn = ({ users }: Users) => {
   // Router
-  const searchParams = useSearchParams();
-  const companyNameFromSearchParam = searchParams
-    ?.get('company')
-    ?.replace(/\s/g, '');
+  const searchParams = useSearchParams()
+  const companyNameFromSearchParam = searchParams?.get("company")?.replace(/\s/g, "")
   // Notification
-  const toast = useRef(null);
+  const toast = useRef(null)
 
   const showError = () => {
     toast.current.show({
-      severity: 'error',
-      summary: 'Les informations entrées sont invalides',
-      detail:
-        "Veuillez s'il vous plaît vérifier votre email et/ou mot de passe",
+      severity: "error",
+      summary: "Les informations entrées sont invalides",
+      detail: "Veuillez s'il vous plaît vérifier votre email et/ou mot de passe",
       life: 3000,
-    });
-  };
+    })
+  }
 
   const showSuccess = () => {
     toast.current.show({
-      severity: 'success',
-      summary: 'Connecté(e) avec succès',
-      detail: 'Vous vous êtes connecté(e) avec succès',
+      severity: "success",
+      summary: "Connecté(e) avec succès",
+      detail: "Vous vous êtes connecté(e) avec succès",
       life: 3000,
-    });
-  };
+    })
+  }
 
   // Button state
-  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
+  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false)
 
   // Typesafe form
   const [form, setForm] = useState<FormData>({
-    userEmail: '',
-    userPassword: '',
-    id: '',
-  });
+    userEmail: "",
+    userPassword: "",
+    id: "",
+  })
 
   async function create(data: FormData) {
-    const { userEmail, userPassword } = data;
-  
-    if (
-      userEmail.length > 6 &&
-      userPassword.length >= 6 &&
-      userEmail.includes('@') &&
-      userEmail.includes('.')
-    ) {
-      setIsButtonLoading(true);
-  
+    const { userEmail, userPassword } = data
+
+    if (userEmail.length > 6 && userPassword.length >= 6 && userEmail.includes("@") && userEmail.includes(".")) {
+      setIsButtonLoading(true)
+
       const { data: signInData, error } = await supabase.auth.signInWithPassword({
         email: userEmail,
         password: userPassword,
-      });
-  
-      setIsButtonLoading(false);
-  
+      })
+
+      setIsButtonLoading(false)
+
       if (error) {
-        console.error('Erreur de connexion :', error.message);
-        showError();
+        console.error("Erreur de connexion :", error.message)
+        showError()
       } else if (signInData?.user) {
-        showSuccess();
-        window.location.replace('/profile');
+        showSuccess()
+        window.location.replace("/profile")
       }
     } else {
-      showError();
+      showError()
     }
-  }  
+  }
 
   const handleSubmit = async (data: FormData) => {
     try {
-      setIsButtonLoading(true);
-      create(data); // call create function with data parameter
-      setIsButtonLoading(false);
+      setIsButtonLoading(true)
+      create(data) // call create function with data parameter
+      setIsButtonLoading(false)
     } catch (error) {
-      return error;
+      return error
     }
-  };
+  }
 
   return (
     <div className="flex min-h-full flex-col justify-center">
       <Toast ref={toast} />
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-sm">
         <form
           onSubmit={(e) => {
-            e.preventDefault(); // don't wanna call the default form actions, otherwise refresh the page
-            handleSubmit(form); // call arrow function to submit
+            e.preventDefault() // don't wanna call the default form actions, otherwise refresh the page
+            handleSubmit(form) // call arrow function to submit
           }}
-          className="space-y-6"
+          className="space-y-8"
           method="POST"
         >
-          <div className="mt-2 w-full">
+          <div className="mt-3 w-full">
             {/* <input
               type="email"
               // placeholder="Email"
@@ -130,20 +118,21 @@ const SignIn = ({ users }: Users) => {
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               required
             /> */}
-            <span className="p-float-label block py-1.5">
+            <span className="p-float-label block py-2">
               <InputText
                 id="email"
                 value={form.userEmail}
-                onChange={(e) =>
-                  setForm({ ...form, userEmail: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, userEmail: e.target.value })}
                 keyfilter="email"
+                className="text-lg py-3"
               />
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="text-lg">
+                Email
+              </label>
             </span>
           </div>
 
-          <div className="mt-4 w-full">
+          <div className="mt-5 w-full">
             {/* <input
               type="password"
               // placeholder="Password"
@@ -154,19 +143,21 @@ const SignIn = ({ users }: Users) => {
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               required
             /> */}
-            <span className="p-float-label block py-1.5">
+            <span className="p-float-label block py-2">
               <Password
                 value={form.userPassword}
-                onChange={(e) =>
-                  setForm({ ...form, userPassword: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, userPassword: e.target.value })}
                 toggleMask
+                className="text-lg"
+                inputClassName="text-lg py-3"
               />
-              <label htmlFor="password">Mot de passe</label>
+              <label htmlFor="password" className="text-lg">
+                Mot de passe
+              </label>
             </span>
           </div>
-          <div className="text-sm">
-            <p className="mt-10 text-center text-sm text-white">
+          <div className="text-base">
+            <p className="mt-12 text-center text-base text-white">
               Mot de passé oublié ?&nbsp;
               <Link
                 href="/resetpassword"
@@ -179,10 +170,10 @@ const SignIn = ({ users }: Users) => {
           <div>
             <Button
               type="submit"
-              className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 "
+              className="flex w-full justify-center rounded-md px-4 py-3 text-lg font-semibold leading-6 text-white shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2"
               loading={isButtonLoading}
               pt={{
-                root: { className: 'bg-green-500 border-green-500' },
+                root: { className: "bg-green-500 border-green-500 text-lg" },
               }}
             >
               Se connecter
@@ -198,6 +189,6 @@ const SignIn = ({ users }: Users) => {
         </p> */}
       </div>
     </div>
-  );
-};
-export default SignIn;
+  )
+}
+export default SignIn
