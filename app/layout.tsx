@@ -2,18 +2,12 @@ import React, { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { Playfair_Display, DM_Sans } from "next/font/google"
+import { Advent_Pro } from "next/font/google"
 import '@/styles/globals.css';
-const playfair = Playfair_Display({
+const adventPro = Advent_Pro({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-playfair",
-  display: "swap",
-})
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-dmsans",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-advent-pro",
   display: "swap",
 })
 import Provider from './Provider';
@@ -75,14 +69,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: IProps) {
   return (
-    <html lang="fr" className={`${playfair.variable} ${dmSans.variable}`}>
+    <html lang="fr" className={`${adventPro.variable}`}>
       <head>
         <title>{process.env.NEXT_APP_NAME}</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body>
+      <body className="font-advent-pro">
         <Provider>
           <div className="overflow-y-scroll">
             <Layout>

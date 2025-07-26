@@ -238,7 +238,7 @@ export default function Home() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-charcoal mb-6">L'Art du Kobido</h2>
+            <h2 className="text-4xl md:text-5xl font-advent-pro font-bold text-charcoal mb-6">L'Art du Kobido</h2>
             <p className="text-lg text-charcoal leading-relaxed mb-6">
               Le Kobido, littéralement "voie de la beauté ancienne", est un massage facial traditionnel japonais vieux
               de plus de 500 ans. Pratiqué à l'origine dans les cours impériales, ce soin d'exception combine des
@@ -264,7 +264,7 @@ export default function Home() {
             />
           </div>
           <div className="md:order-2">
-            <h3 className="text-3xl font-playfair font-bold text-charcoal mb-6">Les Bienfaits</h3>
+            <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">Les Bienfaits</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-gold rounded-full mt-3 flex-shrink-0"></div>
@@ -305,7 +305,7 @@ export default function Home() {
             <Image src="/huile.jpeg" alt="Gestes délicats" fill className="object-cover" />
           </div>
           <div className="text-center">
-            <h3 className="text-2xl font-playfair font-bold text-charcoal mb-4">L'Art du Toucher</h3>
+            <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">L'Art du Toucher</h3>
             <p className="text-charcoal leading-relaxed">
               Chaque geste est une caresse, chaque mouvement une danse délicate qui réveille la beauté naturelle de
               votre peau.
@@ -321,11 +321,11 @@ export default function Home() {
     {/* Section Tarifs */}
     <section id="tarifs" className="py-20 px-4 bg-rose">
       <div className="container mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl md:text-5xl font-playfair font-bold text-charcoal mb-12">Tarifs</h2>
+        <h2 className="text-4xl md:text-5xl font-advent-pro font-bold text-charcoal mb-12">Tarifs</h2>
 
         <Card className="max-w-md mx-auto bg-cream border-gold/20 shadow-lg">
           <CardContent className="p-8">
-            <h3 className="text-2xl font-playfair font-bold text-charcoal mb-4">Soin Kobido® Complet</h3>
+            <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Soin Kobido® Complet</h3>
             <div className="text-4xl font-bold text-gold mb-4">120€</div>
             <p className="text-charcoal mb-6 leading-relaxed">
               Séance de 60 minutes incluant le rituel Kobido® complet avec oshibori traditionnel. Un moment
@@ -352,11 +352,11 @@ export default function Home() {
     {/* Section Contact */}
       <section id="contact" className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-charcoal text-center mb-12">Contact</h2>
+          <h2 className="text-4xl md:text-5xl font-advent-pro font-bold text-charcoal text-center mb-12">Contact</h2>
 
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-playfair font-bold text-charcoal mb-6">Prenons contact</h3>
+              <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-6">Prenons contact</h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center justify-center space-x-3">
                   <Phone className="text-gold" size={20} />

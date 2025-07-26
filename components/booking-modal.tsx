@@ -79,7 +79,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
           >
             <X size={20} />
           </button>
-          <CardTitle className="text-2xl font-playfair font-bold text-charcoal flex items-center gap-2 pr-12">
+          <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center gap-2 pr-12">
             📅 Prendre rendez-vous
           </CardTitle>
           <div className="w-full h-px bg-rose mt-4" />
@@ -176,7 +176,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
             /* Confirmation */
             <div className="text-center py-8 relative z-[10002]">
               <div className="text-6xl mb-4">✨</div>
-              <h3 className="text-xl font-playfair font-bold text-charcoal mb-2">Rendez-vous confirmé !</h3>
+              <h3 className="text-xl font-advent-pro font-bold text-charcoal mb-2">Rendez-vous confirmé !</h3>
               <p className="text-charcoal/70 mb-4">
                 {selectedDate && formatDate(selectedDate)} à {selectedTime}
               </p>

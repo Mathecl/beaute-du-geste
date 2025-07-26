@@ -112,7 +112,7 @@ export default function ContactPage() {
       <header className="bg-cream border-b border-gray-light py-6">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Logo size="md" />
-          <h1 className="text-3xl font-playfair font-bold text-charcoal">Contact & Devis</h1>
+          <h1 className="text-3xl font-advent-pro font-bold text-charcoal">Contact & Devis</h1>
           <Button
             onClick={() => (window.location.href = "/")}
             variant="outline"
@@ -129,7 +129,7 @@ export default function ContactPage() {
           {/* Informations de contact */}
           <Card className="bg-cream border-gold/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-playfair font-bold text-charcoal">Informations</CardTitle>
+              <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal">Informations</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
@@ -174,7 +174,7 @@ export default function ContactPage() {
           {/* Formulaire de contact */}
           <Card className="bg-cream border-gold/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-playfair font-bold text-charcoal">
+              <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal">
                 Demande de contact & devis
               </CardTitle>
             </CardHeader>
@@ -223,7 +223,7 @@ export default function ContactPage() {
               ) : (
                 <div className="text-center py-8">
                   <div className="text-6xl mb-4">✨</div>
-                  <h3 className="text-xl font-playfair font-bold text-charcoal mb-2">Message envoyé !</h3>
+                  <h3 className="text-xl font-advent-pro font-bold text-charcoal mb-2">Message envoyé !</h3>
                   <p className="text-charcoal/70 mb-4">Merci pour votre demande. Je vous répondrai dans les plus brefs délais.</p>
                   <p className="text-sm text-charcoal/60">
                     Vous recevrez une confirmation par email à l'adresse indiquée.

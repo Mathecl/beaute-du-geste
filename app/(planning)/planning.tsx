@@ -232,7 +232,7 @@ export default function PlanningManagement() {
       <header className="bg-cream border-b border-gray-light py-6">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Logo size="md" />
-          <h1 className="text-3xl font-playfair font-bold text-charcoal">Gestion du Planning</h1>
+          <h1 className="text-3xl font-advent-pro font-bold text-charcoal">Gestion du Planning</h1>
           <Button
             onClick={() => (window.location.href = "/")}
             variant="outline"
@@ -248,7 +248,7 @@ export default function PlanningManagement() {
           {/* Calendrier */}
           <Card className="bg-cream border-gold/20 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-playfair font-bold text-charcoal flex items-center justify-between">
+              <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Calendar size={24} />
                   Calendrier
@@ -370,7 +370,7 @@ export default function PlanningManagement() {
             // Interface pour sélection multiple
             <Card className="bg-cream border-gold/20 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-playfair font-bold text-charcoal flex items-center gap-2">
+                <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center gap-2">
                   <CalendarDays size={24} />
                   Actions sur {selectedDates.length} jour{selectedDates.length > 1 ? "s" : ""}
                 </CardTitle>
@@ -437,7 +437,7 @@ export default function PlanningManagement() {
             // Interface pour jour unique (existante)
             <Card className="bg-cream border-gold/20 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-playfair font-bold text-charcoal flex items-center justify-between">
+                <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Clock size={24} />
                     <span className="text-lg">Créneaux du {formatDate(selectedDate)}</span>

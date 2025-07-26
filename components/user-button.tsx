@@ -44,7 +44,7 @@ export function UserButton({ className = "" }: UserButtonProps) {
             >
               <X size={20} />
             </button>
-            <CardTitle className="text-2xl font-playfair font-bold text-charcoal flex items-center gap-2 pr-12">
+            <CardTitle className="text-2xl font-advent-pro font-bold text-charcoal flex items-center gap-2 pr-12">
               <LogIn size={24} />
               Connexion Praticienne
             </CardTitle>

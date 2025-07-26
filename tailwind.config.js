@@ -76,14 +76,10 @@ const config: Config = {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
-  		fontFamily: {
-  			playfair: [
-  				'var(--font-playfair)'
-  			],
-  			sans: [
-  				'var(--font-dmsans)'
-  			]
-  		},
+		fontFamily: {
+			"advent-pro": ["var(--font-advent-pro)"],
+			sans: ["var(--font-advent-pro)"],
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
