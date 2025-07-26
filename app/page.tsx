@@ -224,7 +224,7 @@ export default function Home() {
           </p>
           <Button
             size="lg"
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={() => scrollToSection("contact")}
             className="bg-gold hover:bg-gold/90 text-charcoal font-semibold shadow-lg rounded-full px-8 py-4 text-lg"
           >
             Prendre soin de soi
