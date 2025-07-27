@@ -40,9 +40,9 @@ export function Logo({ className = "", size = "md", variant = "dark" }: LogoProp
 
   return (
     <div className={`flex items-center ${size === "hero" ? "flex-col" : "space-x-3"} ${className}`}>
-      <div className={`${sizeClasses[size]} relative ${size === "hero" ? "mb-4" : ""}`}>
+      {/* <div className={`${sizeClasses[size]} relative ${size === "hero" ? "mb-4" : ""}`}>
         <Image src="/icon-512x512.png" alt="Beauté du Geste Logo" fill className="object-contain" />
-      </div>
+      </div> */}
 
       <div className={`flex flex-col ${size === "hero" ? "text-center" : ""}`}>
         <span className={`font-advent-pro font-bold leading-tight ${titleSizes[size]} ${textColors[variant]}`}>

@@ -9,9 +9,9 @@ import { useRouter } from "next/navigation"
 import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Logo } from "@/components/logo"
 import { BookingModal } from "@/components/booking-modal"
-import { UserButton } from "@/components/user-button"
 // import { Button } from 'primereact/button';
 
 export default function Home() {
@@ -59,6 +59,7 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+  const [showAccountModal, setShowAccountModal] = useState(false)
 
   const heroImages = ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg"]
 
@@ -128,6 +129,12 @@ export default function Home() {
               Le soin Kobido
             </button>
             <button
+              onClick={() => scrollToSection("praticienne")}
+              className="text-charcoal hover:text-gold transition-colors text-lg font-medium"
+            >
+              Votre praticienne
+            </button>
+            <button
               onClick={() => scrollToSection("tarifs")}
               className="text-charcoal hover:text-gold transition-colors text-lg font-medium"
             >
@@ -139,7 +146,13 @@ export default function Home() {
             >
               Contact
             </button>
-            <UserButton />
+            <Button
+              onClick={() => setShowAccountModal(true)}
+              variant="outline"
+              className="border-gold text-charcoal hover:bg-gold/10 text-lg px-4 py-2"
+            >
+              Mon compte
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -168,6 +181,12 @@ export default function Home() {
                 Le soin Kobido
               </button>
               <button
+                onClick={() => scrollToSection("praticienne")}
+                className="block text-charcoal hover:text-gold transition-colors text-lg font-medium"
+              >
+                Votre praticienne
+              </button>
+              <button
                 onClick={() => scrollToSection("tarifs")}
                 className="block text-charcoal hover:text-gold transition-colors text-lg font-medium"
               >
@@ -179,10 +198,36 @@ export default function Home() {
               >
                 Contact
               </button>
+              <Button
+                onClick={() => setShowAccountModal(true)}
+                variant="outline"
+                className="border-gold text-charcoal hover:bg-gold/10 text-lg px-4 py-2"
+              >
+                Mon compte
+              </Button>
             </div>
           </div>
         )}
       </nav>
+
+      {/* Account Modal */}
+      <Dialog open={showAccountModal} onOpenChange={setShowAccountModal}>
+        <DialogContent className="bg-cream border-gold/30 max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-advent-pro font-bold text-charcoal text-center">
+              Création de compte
+            </DialogTitle>
+          </DialogHeader>
+          <div className="text-center py-6">
+            <div className="text-6xl mb-4">🚧</div>
+            <p className="text-lg text-charcoal mb-6">La création de compte sera bientôt disponible</p>
+            <p className="text-base text-charcoal/70">
+              Cette fonctionnalité est en cours de développement. Vous pourrez bientôt créer votre compte pour gérer vos
+              rendez-vous et accéder à votre espace personnel.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Hero Section */}
       <section
@@ -261,7 +306,7 @@ export default function Home() {
               <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
             </div>
             <div className="md:order-2">
-              <h3 className="text-4xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h3>
+              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
@@ -310,6 +355,52 @@ export default function Home() {
             </div>
             <div className="relative h-56 rounded-lg overflow-hidden">
               <Image src="/dos.jpeg" alt="Sérénité et équilibre" fill className="object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Praticienne */}
+      <section id="praticienne" className="py-24 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative h-[500px] rounded-lg overflow-hidden">
+              <Image
+                src="/placeholder.svg?height=500&width=400"
+                alt="Murielle, praticienne Kobido certifiée"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Votre praticienne</h2>
+              <div className="space-y-6 text-xl text-charcoal leading-relaxed">
+                <p>
+                  Je m'appelle <strong>Murielle</strong>, infirmière diplômée d'État depuis 20 ans, guidée par une
+                  vocation : prendre soin des autres.
+                </p>
+                <p>
+                  Forte de cette expérience humaine et professionnelle, j'ai souhaité explorer une autre façon
+                  d'apporter bien-être et apaisement.
+                </p>
+                <p>C'est ainsi que je me suis formée au Kobido, un art ancestral du massage facial japonais.</p>
+                <p>
+                  J'ai obtenu ma certification de praticienne en <strong>Authentique Kobido®</strong> à l'École du
+                  Kobido® de Rochefort, reconnue pour son exigence et sa transmission rigoureuse de cette tradition.
+                </p>
+                <p>
+                  Le Kobido allie technicité, délicatesse et énergie pour lifter les traits, stimuler la circulation et
+                  éveiller l'éclat naturel du visage.
+                </p>
+                <p>
+                  Au-delà de ses bienfaits esthétiques, ce massage procure une profonde détente et un véritable
+                  lâcher-prise.
+                </p>
+                <p>Mon approche repose sur l'écoute, la douceur et le respect de chaque personne dans sa globalité.</p>
+                <p>
+                  <strong>Chaque soin que je propose est personnalisé, en harmonie avec vos besoins du moment.</strong>
+                </p>
+              </div>
             </div>
           </div>
         </div>
