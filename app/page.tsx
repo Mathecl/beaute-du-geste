@@ -221,10 +221,10 @@ export default function Home() {
           <div className="text-center py-6">
             <div className="text-6xl mb-4">🚧</div>
             <p className="text-lg text-charcoal mb-6">La création de compte sera bientôt disponible</p>
-            <p className="text-base text-charcoal/70">
+            {/* <p className="text-base text-charcoal/70">
               Cette fonctionnalité est en cours de développement. Vous pourrez bientôt créer votre compte pour gérer vos
               rendez-vous et accéder à votre espace personnel.
-            </p>
+            </p> */}
           </div>
         </DialogContent>
       </Dialog>
@@ -287,9 +287,9 @@ export default function Home() {
             <div>
               <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">L'Art du Kobido</h3>
               <p className="text-xl text-charcoal leading-relaxed mb-8">
-                Le Kobido, littéralement "voie de la beauté ancienne", est un massage facial traditionnel japonais vieux
-                de plus de 500 ans. Pratiqué à l'origine dans les cours impériales, ce soin d'exception combine des
-                techniques ancestrales pour révéler l'éclat naturel de votre peau.
+                Le KOBIDO, littéralement "voie ancestrale de la beauté", est un massage facial traditionnel
+                japonais de plus de 500 ans. Initialement réservé à la famille impériale du Japon, ce soin
+                d'exception marie des techniques anciennes pour révéler l'éclat naturel de la peau.
               </p>
             </div>
             <div className="relative h-[450px] rounded-lg overflow-hidden">
