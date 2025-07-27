@@ -360,7 +360,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative h-[500px] rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=500&width=400"
+                src="/photoPortait.jpg?height=500&width=400"
                 alt="Murielle, praticienne Kobido certifiée"
                 fill
                 className="object-cover"
