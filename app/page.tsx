@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Logo } from "@/components/logo"
+import { LogoIcon } from "@/components/logo-icon"
 import { BookingModal } from "@/components/booking-modal"
 // import { Button } from 'primereact/button';
 
@@ -112,7 +113,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-gray-light">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <Logo size="lg" />
+          <LogoIcon size="lg" />
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-10">
@@ -490,7 +491,7 @@ export default function Home() {
                 </a>
                 <div className="flex items-center justify-center space-x-4">
                   <Facebook className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">@beaute-dugeste</span>
+                  <span className="text-charcoal text-lg">@beautedugeste</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <MapPin className="text-gold" size={24} />
