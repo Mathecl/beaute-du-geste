@@ -50,7 +50,7 @@ export default function Sign() {
       {/* Header */}
       <header className="bg-cream border-b border-gray-light py-8">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Logo size="md" />
+          <LogoIcon size="md" />
           <h1 className="text-4xl font-advent-pro font-bold text-charcoal">Connexion</h1>
           <Button
             onClick={() => (window.location.href = "/")}

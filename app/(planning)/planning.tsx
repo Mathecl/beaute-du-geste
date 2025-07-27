@@ -231,7 +231,7 @@ export default function PlanningManagement() {
       {/* Header */}
       <header className="bg-cream border-b border-gray-light py-8">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Logo size="lg" />
+          <LogoIcon size="lg" />
           <h1 className="text-4xl font-advent-pro font-bold text-charcoal">Gestion du Planning</h1>
           <Button
             onClick={() => (window.location.href = "/")}
