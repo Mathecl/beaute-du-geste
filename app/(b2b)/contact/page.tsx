@@ -147,7 +147,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier</span>
+                  <span className="text-charcoal text-lg">Marseille | Briançon, Serre-Chevalier</span>
                 </div>
               </div>
 
