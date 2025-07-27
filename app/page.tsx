@@ -185,7 +185,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="accueil"
+        className="relative min-h-screen h-screen max-h-screen flex items-center justify-center overflow-hidden"
+      >
         {/* Background Slideshow */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -200,8 +203,12 @@ export default function Home() {
                   src={image || "/placeholder.svg"}
                   alt={`Hero image ${index + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  style={{
+                    objectPosition: "center center",
+                  }}
                   priority={index === 0}
+                  sizes="100vw"
                 />
               </Suspense>
             </div>
@@ -211,19 +218,19 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <div className="mb-12 flex flex-col items-center">
-            <Logo size="hero" variant="light" className="mb-12" />
-            <p className="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto mb-12 font-medium">
-              Découvrez l'art du Kobido, un soin du visage d'exception qui allie tradition japonaise et gestes intuitifs
-              pour sublimer votre peau et apaiser votre esprit.
+          <div className="mb-8 md:mb-12 flex flex-col items-center">
+            <Logo size="hero" variant="light" className="mb-8 md:mb-12" />
+            <p className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto mb-8 md:mb-12 font-medium px-4">
+              Découvrez l'Authentique Kobido®, un soin du visage et du décolleté d'exception qui allie tradition
+              japonaise et expertise du geste pour sublimer votre peau et apaiser votre esprit.
             </p>
-            <Button
+            {/* <Button
               size="lg"
               onClick={() => scrollToSection("contact")}
-              className="bg-gold hover:bg-gold/90 text-charcoal font-semibold shadow-lg rounded-full px-12 py-6 text-xl"
+              className="bg-gold hover:bg-gold/90 text-charcoal font-semibold shadow-lg rounded-full px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl"
             >
               Prendre soin de soi
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
@@ -235,13 +242,9 @@ export default function Home() {
             <div>
               <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">L'Art du Kobido</h2>
               <p className="text-xl text-charcoal leading-relaxed mb-8">
-                Le Kobido, littéralement "voie de la beauté ancienne", est un massage facial traditionnel japonais vieux
-                de plus de 500 ans. Pratiqué à l'origine dans les cours impériales, ce soin d'exception combine des
-                techniques ancestrales pour révéler l'éclat naturel de votre peau.
-              </p>
-              <p className="text-xl text-charcoal leading-relaxed">
-                Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
-                régénération cellulaire, offrant un moment de pure détente et de reconnexion avec soi.
+                LLe KOBIDO, littéralement "voie ancestrale de la beauté", est un massage facial traditionnel japonais
+                de plus de 500 ans. Initialement réservé à la famille impériale du Japon, ce soin d'exception marie des
+                techniques anciennes pour révéler l'éclat naturel de la peau.
               </p>
             </div>
             <div className="relative h-[450px] rounded-lg overflow-hidden">
@@ -254,8 +257,12 @@ export default function Home() {
               <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
             </div>
             <div className="md:order-2">
-              <h3 className="text-4xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h3>
+              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h2>
               <div className="space-y-6">
+                <p className="text-xl text-charcoal leading-relaxed">
+                  Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
+                  régénération cellulaire, offrant un moment de pure détente et de reconnexion avec soi.
+                </p>
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
@@ -266,19 +273,19 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
-                    <strong>Détente profonde :</strong> Relâchement des tensions faciales et apaisement de l'esprit
-                  </p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-charcoal">
-                    <strong>Lissage naturel :</strong> Tonification des muscles pour un effet lifting naturel
+                    <strong>Lift naturel :</strong> Redessine l'ovale du visage, favorise l'élasticité et la souplesse de la peau
                   </p>
                 </div>
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
                     <strong>Hydratation :</strong> Amélioration de l'élasticité et de la souplesse de la peau
+                  </p>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
+                  <p className="text-xl text-charcoal">
+                    <strong>Détente profonde :</strong> Relâchement des tensions faciales et apaisement de l'esprit
                   </p>
                 </div>
               </div>

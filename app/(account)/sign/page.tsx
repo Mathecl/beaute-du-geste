@@ -74,7 +74,7 @@ export default function Sign() {
                     <source src="/video/sign.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </image> */}
-                  <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="w-full h-full object-cover" />
+                  <Image src="/hero1.jpg" alt="Bienfaits du Kobido" fill className="w-full h-full object-cover" />
                 </Suspense>
               </div>
             )}

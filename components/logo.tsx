@@ -46,7 +46,7 @@ export function Logo({ className = "", size = "md", variant = "dark" }: LogoProp
 
       <div className={`flex flex-col ${size === "hero" ? "text-center" : ""}`}>
         <span className={`font-advent-pro font-bold leading-tight ${titleSizes[size]} ${textColors[variant]}`}>
-          Beauté du Geste
+          BEAUTÉ DU GESTE
         </span>
         <span className={`font-light tracking-wide ${subtitleSizes[size]} ${subtitleColors[variant]}`}>
           Art du Kobido
