@@ -6,7 +6,7 @@ import { Suspense } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram, Facebook } from "lucide-react"
+import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Logo } from "@/components/logo"
@@ -111,7 +111,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-gray-light">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <Logo size="md" />
+          <Logo size="lg" />
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-10">
@@ -242,9 +242,13 @@ export default function Home() {
             <div>
               <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">L'Art du Kobido</h2>
               <p className="text-xl text-charcoal leading-relaxed mb-8">
-                LLe KOBIDO, littéralement "voie ancestrale de la beauté", est un massage facial traditionnel japonais
-                de plus de 500 ans. Initialement réservé à la famille impériale du Japon, ce soin d'exception marie des
-                techniques anciennes pour révéler l'éclat naturel de la peau.
+                Le Kobido, littéralement "voie de la beauté ancienne", est un massage facial traditionnel japonais vieux
+                de plus de 500 ans. Pratiqué à l'origine dans les cours impériales, ce soin d'exception combine des
+                techniques ancestrales pour révéler l'éclat naturel de votre peau.
+              </p>
+              <p className="text-xl text-charcoal leading-relaxed">
+                Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
+                régénération cellulaire, offrant un moment de pure détente et de reconnexion avec soi.
               </p>
             </div>
             <div className="relative h-[450px] rounded-lg overflow-hidden">
@@ -257,12 +261,8 @@ export default function Home() {
               <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
             </div>
             <div className="md:order-2">
-              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h2>
+              <h3 className="text-4xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h3>
               <div className="space-y-6">
-                <p className="text-xl text-charcoal leading-relaxed">
-                  Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
-                  régénération cellulaire, offrant un moment de pure détente et de reconnexion avec soi.
-                </p>
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
@@ -273,19 +273,19 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
-                    <strong>Lift naturel :</strong> Redessine l'ovale du visage, favorise l'élasticité et la souplesse de la peau
+                    <strong>Détente profonde :</strong> Relâchement des tensions faciales et apaisement de l'esprit
+                  </p>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
+                  <p className="text-xl text-charcoal">
+                    <strong>Lissage naturel :</strong> Tonification des muscles pour un effet lifting naturel
                   </p>
                 </div>
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
                     <strong>Hydratation :</strong> Amélioration de l'élasticité et de la souplesse de la peau
-                  </p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-charcoal">
-                    <strong>Détente profonde :</strong> Relâchement des tensions faciales et apaisement de l'esprit
                   </p>
                 </div>
               </div>
@@ -302,9 +302,10 @@ export default function Home() {
               <Image src="/huile.jpeg" alt="Gestes délicats" fill className="object-cover" />
             </div>
             <div className="text-center">
-              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">Chaque geste est une caresse</h3>
+              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">L'Art du Toucher</h3>
               <p className="text-charcoal leading-relaxed text-lg">
-                Chaque mouvement une danse délicate qui sublime la beauté naturelle de votre peau.
+                Chaque geste est une caresse, chaque mouvement une danse délicate qui réveille la beauté naturelle de
+                votre peau.
               </p>
             </div>
             <div className="relative h-56 rounded-lg overflow-hidden">
@@ -316,70 +317,106 @@ export default function Home() {
 
       {/* Section Tarifs */}
       <section id="tarifs" className="py-24 px-4 bg-rose">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-16">Tarifs</h2>
+        <div className="container mx-auto max-w-7xl text-center">
+          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Tarifs</h2>
+          <p className="text-xl text-charcoal mb-16 font-medium">
+            Un moment d'exception pour retrouver éclat et sérénité
+          </p>
 
-          <Card className="max-w-lg mx-auto bg-cream border-gold/20 shadow-lg">
-            <CardContent className="p-10">
-              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">Soin Kobido® Complet</h3>
-              <div className="text-5xl font-bold text-gold mb-6">120€</div>
-              <p className="text-charcoal mb-8 leading-relaxed text-lg">
-                Séance de 60 minutes incluant le rituel Kobido® complet avec oshibori traditionnel. Un moment
-                d'exception pour retrouver éclat et sérénité.
-              </p>
-              <div className="space-y-3 text-base text-charcoal/80 mb-6">
-                <p>• Rituel d'accueil avec oshibori</p>
-                <p>• Nettoyage et préparation de la peau</p>
-                <p>• Massage Kobido® traditionnel du visage</p>
-                <p>• Masque hydratant personnalisé</p>
-              </div>
-              <div className="bg-gold/10 p-4 rounded-lg">
-                <p className="text-sm text-charcoal font-medium">
-                  🎁 Première séance : serviette + fiole de soin offertes
-                  <br />
-                  <span className="text-charcoal/60">(puis disponibles sur commande)</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Sukoshi Kobido */}
+            <Card className="bg-cream border-gold/20 shadow-lg h-full">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Sukoshi Kobido</h3>
+                <div className="text-4xl font-bold text-gold mb-4">70€</div>
+                <p className="text-lg text-charcoal mb-6 font-medium">Séance de 30 minutes</p>
+                <p className="text-base text-charcoal mb-6 leading-relaxed flex-grow">
+                  Un soin dédié principalement aux zones cou et décolleté
                 </p>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="space-y-2 text-sm text-charcoal/80">
+                  <p>+ Rituel d'accueil avec Oshibori</p>
+                  <p>+ Massage cou et décolleté Authentique Kobido®</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Futsu Kobido */}
+            <Card className="bg-cream border-gold/20 shadow-lg h-full ring-2 ring-gold/30">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Futsu Kobido</h3>
+                <div className="text-4xl font-bold text-gold mb-4">120€</div>
+                <p className="text-lg text-charcoal mb-6 font-medium">Séance de 60 minutes</p>
+                <p className="text-base text-charcoal mb-6 leading-relaxed flex-grow">
+                  Un soin dédié principalement au visage
+                </p>
+                <div className="space-y-2 text-sm text-charcoal/80">
+                  <p>+ Rituel d'accueil avec Oshibori</p>
+                  <p>+ Massage visage Authentique Kobido®</p>
+                  <p>+ Grand lissage</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Oki Kobido */}
+            <Card className="bg-cream border-gold/20 shadow-lg h-full md:col-span-2 lg:col-span-1">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Oki Kobido</h3>
+                <div className="text-4xl font-bold text-gold mb-4">170€</div>
+                <p className="text-lg text-charcoal mb-6 font-medium">Séance de 90 minutes</p>
+                <p className="text-base text-charcoal mb-6 leading-relaxed flex-grow">
+                  Un soin dédié aux zones visage, cou et décolleté
+                </p>
+                <div className="space-y-2 text-sm text-charcoal/80">
+                  <p>+ Rituel d'accueil avec Oshibori</p>
+                  <p>+ Massage visage, cou et décolleté Authentique Kobido®</p>
+                  <p>+ Grand lissage</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* Section Contact */}
       <section id="contact" className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal text-center mb-16">Prenons contact</h2>
+          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal text-center mb-16">Contact</h2>
 
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
-              {/* <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-8">Prenons contact</h3> */}
+              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-8">Prenons contact</h3>
               <div className="space-y-6 mb-10">
                 <div className="flex items-center justify-center space-x-4">
                   <Phone className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">06 09 42 92 49</span>
+                  <span className="text-charcoal text-lg">06 12 34 56 78</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <Mail className="text-gold" size={24} />
                   <span className="text-charcoal text-lg">contact@beaute-dugeste.fr</span>
                 </div>
-                <div className="flex items-center justify-center space-x-4">
-                  <Facebook className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">@beautedugeste</span>
-                </div>
-                <div className="flex items-center justify-center space-x-4">
+                <a
+                  href="https://www.instagram.com/beautedugeste/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-4 hover:text-gold transition-colors cursor-pointer"
+                >
                   <Instagram className="text-gold" size={24} />
                   <span className="text-charcoal text-lg">@beautedugeste</span>
-                </div>
+                </a>
                 <div className="flex items-center justify-center space-x-4">
                   <MapPin className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier</span>
+                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier, sur rendez-vous</span>
                 </div>
               </div>
 
               <div className="bg-rose/30 p-8 rounded-lg mb-10">
                 <h4 className="font-bold text-charcoal mb-3 text-xl">Horaires</h4>
                 <p className="text-charcoal text-lg">
-                  Rendez-vous uniquement par téléphone
+                  Du mardi au samedi
+                  <br />
+                  9h00 - 19h00
+                  <br />
+                  Sur rendez-vous uniquement
                 </p>
               </div>
 
