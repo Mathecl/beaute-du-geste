@@ -291,10 +291,6 @@ export default function Home() {
                 de plus de 500 ans. Pratiqué à l'origine dans les cours impériales, ce soin d'exception combine des
                 techniques ancestrales pour révéler l'éclat naturel de votre peau.
               </p>
-              <p className="text-xl text-charcoal leading-relaxed">
-                Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
-                régénération cellulaire, offrant un moment de pure détente et de reconnexion avec soi.
-              </p>
             </div>
             <div className="relative h-[450px] rounded-lg overflow-hidden">
               <Image src="/dos.jpeg" alt="Soin Kobido traditionnel" fill className="object-cover" />
@@ -306,8 +302,12 @@ export default function Home() {
               <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
             </div>
             <div className="md:order-2">
-              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Les Bienfaits</h2>
+              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Les bienfaits de l’Authentique Kobido®</h2>
               <div className="space-y-6">
+                <p className="text-xl text-charcoal leading-relaxed">
+                  Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
+                  régénération cellulaire, offrant un moment de pure détente et de reconnexion avec soi.
+                </p>
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
@@ -318,19 +318,13 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
                   <p className="text-xl text-charcoal">
+                    <strong>Lift naturel :</strong> Redessine l’ovale du visage, favorise l’élasticité et la souplesse de la peau
+                  </p>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
+                  <p className="text-xl text-charcoal">
                     <strong>Détente profonde :</strong> Relâchement des tensions faciales et apaisement de l'esprit
-                  </p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-charcoal">
-                    <strong>Lissage naturel :</strong> Tonification des muscles pour un effet lifting naturel
-                  </p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-gold rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-charcoal">
-                    <strong>Hydratation :</strong> Amélioration de l'élasticité et de la souplesse de la peau
                   </p>
                 </div>
               </div>
@@ -347,11 +341,11 @@ export default function Home() {
               <Image src="/huile.jpeg" alt="Gestes délicats" fill className="object-cover" />
             </div>
             <div className="text-center">
-              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">L'Art du Toucher</h3>
-              <p className="text-charcoal leading-relaxed text-lg">
+              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">« Chaque geste est une caresse. Chaque mouvement une danse délicate qui sublime la beauté naturelle de votre peau »</h3>
+              {/* <p className="text-charcoal leading-relaxed text-lg">
                 Chaque geste est une caresse, chaque mouvement une danse délicate qui réveille la beauté naturelle de
                 votre peau.
-              </p>
+              </p> */}
             </div>
             <div className="relative h-56 rounded-lg overflow-hidden">
               <Image src="/dos.jpeg" alt="Sérénité et équilibre" fill className="object-cover" />
