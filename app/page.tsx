@@ -144,7 +144,7 @@ export default function Home() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
-            <UserButton />
+            {/* <UserButton /> */}
             <button className="text-charcoal" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>

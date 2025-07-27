@@ -69,11 +69,12 @@ export default function Sign() {
             {/* Video Background for Desktop */}
             {!isMobile && (
               <div className="fixed inset-0 z-0 opacity-20">
-                <Suspense fallback={<div className="text-xl text-charcoal">Chargement de la vidéo...</div>}>
-                  <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                <Suspense fallback={<div className="text-xl text-charcoal">Chargement...</div>}>
+                  {/* <image autoPlay muted loop playsInline className="w-full h-full object-cover">
                     <source src="/video/sign.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
-                  </video>
+                  </image> */}
+                  <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="w-full h-full object-cover" />
                 </Suspense>
               </div>
             )}
