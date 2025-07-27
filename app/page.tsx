@@ -411,7 +411,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Sukoshi Kobido */}
-            <Card className="bg-cream border-gold/20 shadow-lg h-full">
+            <Card className="bg-cream border-gold/20 shadow-lg h-full transform transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gold/20">
               <CardContent className="p-8 flex flex-col h-full">
                 <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Sukoshi Kobido</h3>
                 <div className="text-4xl font-bold text-gold mb-4">70€</div>
@@ -427,7 +427,7 @@ export default function Home() {
             </Card>
 
             {/* Futsu Kobido */}
-            <Card className="bg-cream border-gold/20 shadow-lg h-full ring-2 ring-gold/30">
+            <Card className="bg-cream border-gold/20 shadow-lg h-full ring-2 ring-gold/30 transform transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gold/20">
               <CardContent className="p-8 flex flex-col h-full">
                 <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Futsu Kobido</h3>
                 <div className="text-4xl font-bold text-gold mb-4">120€</div>
@@ -444,7 +444,7 @@ export default function Home() {
             </Card>
 
             {/* Oki Kobido */}
-            <Card className="bg-cream border-gold/20 shadow-lg h-full md:col-span-2 lg:col-span-1">
+            <Card className="bg-cream border-gold/20 shadow-lg h-full transform transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gold/20">
               <CardContent className="p-8 flex flex-col h-full">
                 <h3 className="text-2xl font-advent-pro font-bold text-charcoal mb-4">Oki Kobido</h3>
                 <div className="text-4xl font-bold text-gold mb-4">170€</div>
@@ -495,7 +495,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <MapPin className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier</span>
+                  <span className="text-charcoal text-lg">Marseille | Briançon, Serre-Chevalier</span>
                 </div>
               </div>
 
