@@ -6,7 +6,7 @@ import { Suspense } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram } from "lucide-react"
+import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Logo } from "@/components/logo"
@@ -302,10 +302,9 @@ export default function Home() {
               <Image src="/huile.jpeg" alt="Gestes délicats" fill className="object-cover" />
             </div>
             <div className="text-center">
-              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">L'Art du Toucher</h3>
+              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">Chaque geste est une caresse</h3>
               <p className="text-charcoal leading-relaxed text-lg">
-                Chaque geste est une caresse, chaque mouvement une danse délicate qui réveille la beauté naturelle de
-                votre peau.
+                Chaque mouvement une danse délicate qui sublime la beauté naturelle de votre peau.
               </p>
             </div>
             <div className="relative h-56 rounded-lg overflow-hidden">
@@ -349,19 +348,23 @@ export default function Home() {
       {/* Section Contact */}
       <section id="contact" className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal text-center mb-16">Contact</h2>
+          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal text-center mb-16">Prenons contact</h2>
 
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
-              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-8">Prenons contact</h3>
+              {/* <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-8">Prenons contact</h3> */}
               <div className="space-y-6 mb-10">
                 <div className="flex items-center justify-center space-x-4">
                   <Phone className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">06 12 34 56 78</span>
+                  <span className="text-charcoal text-lg">06 09 42 92 49</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <Mail className="text-gold" size={24} />
                   <span className="text-charcoal text-lg">contact@beaute-dugeste.fr</span>
+                </div>
+                <div className="flex items-center justify-center space-x-4">
+                  <Facebook className="text-gold" size={24} />
+                  <span className="text-charcoal text-lg">@beautedugeste</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <Instagram className="text-gold" size={24} />
@@ -369,18 +372,14 @@ export default function Home() {
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <MapPin className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier, sur rendez-vous</span>
+                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier</span>
                 </div>
               </div>
 
               <div className="bg-rose/30 p-8 rounded-lg mb-10">
                 <h4 className="font-bold text-charcoal mb-3 text-xl">Horaires</h4>
                 <p className="text-charcoal text-lg">
-                  Du mardi au samedi
-                  <br />
-                  9h00 - 19h00
-                  <br />
-                  Sur rendez-vous uniquement
+                  Rendez-vous uniquement par téléphone
                 </p>
               </div>
 
