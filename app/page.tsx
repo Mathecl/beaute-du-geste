@@ -338,7 +338,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl">
           <div className="grid md:grid-cols-3 gap-10 items-center">
             <div className="relative h-56 rounded-lg overflow-hidden">
-              <Image src="/N°9G0A3538.jpg" alt="Gestes délicats" fill className="object-cover" />
+              <Image src="/9G0A3538.jpg" alt="Gestes délicats" fill className="object-cover" />
             </div>
             <div className="text-center">
               <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">« Chaque geste est une caresse. Chaque mouvement une danse délicate qui sublime la beauté naturelle de votre peau »</h3>
