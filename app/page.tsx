@@ -465,11 +465,11 @@ export default function Home() {
       {/* Section Contact */}
       <section id="contact" className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal text-center mb-16">Contact</h2>
+          <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal text-center mb-16">Prenons contact</h2>
 
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
-              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-8">Prenons contact</h3>
+              {/* <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-8">Prenons contact</h3> */}
               <div className="space-y-6 mb-10">
                 <div className="flex items-center justify-center space-x-4">
                   <Phone className="text-gold" size={24} />
