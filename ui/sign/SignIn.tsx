@@ -1,17 +1,13 @@
 "use client"
 import { useState, useRef } from "react"
-
 import supabase from "@/utils/supabase/supabaseClient"
-
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
-
-import { InputText } from "primereact/inputtext"
-import { Password } from "primereact/password"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Eye, EyeOff, Mail, Lock, CheckCircle } from "lucide-react"
 import { Toast } from "primereact/toast"
-import { Button } from "primereact/button"
-
-// import '@/styles/sign.css';
 
 interface Users {
   users: {
@@ -20,6 +16,7 @@ interface Users {
     id: string
   }[]
 }
+
 interface FormData {
   userEmail: string
   userPassword: string
@@ -27,34 +24,29 @@ interface FormData {
 }
 
 const SignIn = ({ users }: Users) => {
-  // Router
   const searchParams = useSearchParams()
-  const companyNameFromSearchParam = searchParams?.get("company")?.replace(/\s/g, "")
-  // Notification
-  const toast = useRef(null)
+  const toast = useRef<Toast>(null)
+  const [showPassword, setShowPassword] = useState(false)
+  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false)
 
   const showError = () => {
-    toast.current.show({
+    toast.current?.show({
       severity: "error",
-      summary: "Les informations entrées sont invalides",
-      detail: "Veuillez s'il vous plaît vérifier votre email et/ou mot de passe",
-      life: 3000,
+      summary: "Erreur de connexion",
+      detail: "Veuillez vérifier votre email et/ou mot de passe",
+      life: 4000,
     })
   }
 
   const showSuccess = () => {
-    toast.current.show({
+    toast.current?.show({
       severity: "success",
-      summary: "Connecté(e) avec succès",
-      detail: "Vous vous êtes connecté(e) avec succès",
+      summary: "Connexion réussie",
+      detail: "Vous êtes maintenant connecté(e)",
       life: 3000,
     })
   }
 
-  // Button state
-  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false)
-
-  // Typesafe form
   const [form, setForm] = useState<FormData>({
     userEmail: "",
     userPassword: "",
@@ -89,106 +81,107 @@ const SignIn = ({ users }: Users) => {
   const handleSubmit = async (data: FormData) => {
     try {
       setIsButtonLoading(true)
-      create(data) // call create function with data parameter
+      await create(data)
       setIsButtonLoading(false)
     } catch (error) {
+      setIsButtonLoading(false)
       return error
     }
   }
 
   return (
-    <div className="flex min-h-full flex-col justify-center">
+    <div className="w-full max-w-md mx-auto">
       <Toast ref={toast} />
 
-      <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault() // don't wanna call the default form actions, otherwise refresh the page
-            handleSubmit(form) // call arrow function to submit
-          }}
-          className="space-y-8"
-          method="POST"
-        >
-          <div className="mt-3 w-full">
-            {/* <input
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleSubmit(form)
+        }}
+        className="space-y-6"
+        method="POST"
+      >
+        {/* Email Field */}
+        <div className="space-y-2">
+          <Label htmlFor="email" className="text-lg font-medium text-charcoal">
+            Adresse email
+          </Label>
+          <div className="relative">
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-charcoal/50" size={20} />
+            <Input
+              id="email"
               type="email"
-              // placeholder="Email"
               value={form.userEmail}
               onChange={(e) => setForm({ ...form, userEmail: e.target.value })}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="pl-12 py-4 text-lg border-gray-light focus:border-gold focus:ring-gold/20 bg-cream"
+              placeholder="votre@email.com"
               required
-            /> */}
-            <span className="p-float-label block py-2">
-              <InputText
-                id="email"
-                value={form.userEmail}
-                onChange={(e) => setForm({ ...form, userEmail: e.target.value })}
-                keyfilter="email"
-                className="text-lg py-3"
-              />
-              <label htmlFor="email" className="text-lg">
-                Email
-              </label>
-            </span>
+            />
           </div>
+        </div>
 
-          <div className="mt-5 w-full">
-            {/* <input
-              type="password"
-              // placeholder="Password"
+        {/* Password Field */}
+        <div className="space-y-2">
+          <Label htmlFor="password" className="text-lg font-medium text-charcoal">
+            Mot de passe
+          </Label>
+          <div className="relative">
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-charcoal/50" size={20} />
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
               value={form.userPassword}
-              onChange={(e) =>
-                setForm({ ...form, userPassword: e.target.value })
-              }
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              onChange={(e) => setForm({ ...form, userPassword: e.target.value })}
+              className="pl-12 pr-12 py-4 text-lg border-gray-light focus:border-gold focus:ring-gold/20 bg-cream"
+              placeholder="••••••••"
               required
-            /> */}
-            <span className="p-float-label block py-2">
-              <Password
-                value={form.userPassword}
-                onChange={(e) => setForm({ ...form, userPassword: e.target.value })}
-                toggleMask
-                className="text-lg"
-                inputClassName="text-lg py-3"
-              />
-              <label htmlFor="password" className="text-lg">
-                Mot de passe
-              </label>
-            </span>
-          </div>
-          <div className="text-base">
-            <p className="mt-12 text-center text-base text-white">
-              Mot de passé oublié ?&nbsp;
-              <Link
-                href="/resetpassword"
-                className="formLinks font-semibold leading-6 text-green-600 hover:text-green-500"
-              >
-                Réinitialisez le ici
-              </Link>
-            </p>
-          </div>
-          <div>
-            <Button
-              type="submit"
-              className="flex w-full justify-center rounded-md px-4 py-3 text-lg font-semibold leading-6 text-white shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2"
-              loading={isButtonLoading}
-              pt={{
-                root: { className: "bg-green-500 border-green-500 text-lg" },
-              }}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-charcoal/50 hover:text-charcoal transition-colors"
             >
-              Se connecter
-            </Button>
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
           </div>
-        </form>
+        </div>
 
-        {/* <p className="mt-10 text-center text-sm text-white">
-          Pas encore enregistré(e) à Unigate ?&nbsp;
-          <span className="formLinks font-semibold leading-6 text-white ">
-            Inscrivez-vous depuis le bouton en haut du formulaire
-          </span>
-        </p> */}
-      </div>
+        {/* Forgot Password Link */}
+        <div className="text-center">
+          <Link href="/resetpassword" className="text-lg text-gold hover:text-gold/80 font-medium transition-colors">
+            Mot de passe oublié ?
+          </Link>
+        </div>
+
+        {/* Submit Button */}
+        <Button
+          type="submit"
+          disabled={isButtonLoading}
+          className="w-full bg-charcoal hover:bg-gold text-cream hover:text-charcoal font-semibold py-4 text-lg transition-all rounded-full"
+        >
+          {isButtonLoading ? (
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 border-2 border-cream/30 border-t-cream rounded-full animate-spin"></div>
+              Connexion en cours...
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <CheckCircle size={20} />
+              Se connecter
+            </div>
+          )}
+        </Button>
+
+        {/* Additional Info */}
+        <div className="bg-rose/20 p-4 rounded-lg">
+          <p className="text-base text-charcoal/70 text-center">
+            Première visite ?{" "}
+            <span className="font-medium text-charcoal">Créez votre compte pour réserver vos séances Kobido</span>
+          </p>
+        </div>
+      </form>
     </div>
   )
 }
+
 export default SignIn

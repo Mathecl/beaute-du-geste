@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react"
 import { Suspense } from "react"
-
 import Image from "next/image"
-
-import { Button } from "primereact/button"
-
-import SignIn from "@/ui/sign/SignIn.tsx"
-import SignUp from "@/ui/sign/SignUp.tsx"
-// import '@/styles/sign.css';
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowLeft } from "lucide-react"
+import { Logo } from "@/components/logo"
+import SignIn from "@/ui/sign/SignIn"
+import SignUp from "@/ui/sign/SignUp"
 
 export default function Sign() {
   const [signUp, setSignUp] = useState<boolean>(true)
+  const [isMobile, setIsMobile] = useState(false)
 
   function displaySignUp() {
     try {
@@ -30,19 +30,11 @@ export default function Sign() {
     }
   }
 
-  const [isMobile, setIsMobile] = useState(false)
-
   useEffect(() => {
-    // Check if the window object is available (i.e., we are in a browser environment)
     if (typeof window !== "undefined") {
-      // Access the user-agent string from the window.navigator object
       const userAgent = window.navigator.userAgent
-      // console.log('user agent:', JSON.stringify(userAgent));
-
-      // Define regular expressions to match common mobile device types
       const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
 
-      // Use the test method to check if the user-agent string matches any of the mobile device patterns
       if (typeof window != undefined) {
         if (mobileRegex.test(userAgent)) {
           setIsMobile(true)
@@ -51,106 +43,95 @@ export default function Sign() {
         }
       }
     }
-
-    // const innerWidth = window.innerWidth;
-    // if (typeof window != undefined) {
-    //   if (innerWidth <= 640) {
-    //     setIsMobile(true);
-    //   } else {
-    //     setIsMobile(false);
-    //   }
-    // }
   }, [])
 
   return (
-    <div className="flex h-screen items-center justify-center gap-4 md:justify-between">
-      {/* Video (background) */}
-      {isMobile != true && (
-        <div className="video-container z-0">
-          <Suspense fallback={<p className="text-lg">Chargement de la vidéo...</p>}>
-            <video autoPlay muted loop playsInline>
-              <source src="/video/sign.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </Suspense>
+    <div className="min-h-screen bg-cream">
+      {/* Header */}
+      <header className="bg-cream border-b border-gray-light py-8">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <Logo size="md" />
+          <h1 className="text-4xl font-advent-pro font-bold text-charcoal">Connexion</h1>
+          <Button
+            onClick={() => (window.location.href = "/")}
+            variant="outline"
+            className="border-gold text-charcoal hover:bg-gold/10 flex items-center gap-2 text-lg px-6 py-3"
+          >
+            <ArrowLeft size={18} />
+            Retour au site
+          </Button>
         </div>
-      )}
+      </header>
 
-      {/* Sign in, sign up form (left) */}
-      {isMobile !== true ? (
-        <div
-          className="z-1 text-card-foreground formWidth ml-8 h-max rounded-lg border border-gray-800 bg-[#79018c] bg-opacity-30 bg-clip-padding p-6 shadow-md backdrop-blur-sm backdrop-filter md:w-1/3"
-          data-v0-t="card"
-        >
-          <div className="w-full text-center">
-            <Button
-              label="Connexion"
-              rounded
-              onClick={displaySignUp}
-              className="mr-3 text-lg px-6 py-3"
-              pt={{
-                root: { className: "bg-green-500 border-green-500 text-lg" },
-              }}
-            />
-            <Button
-              label="Inscription"
-              rounded
-              onClick={displaySignIn}
-              className="text-lg px-6 py-3"
-              pt={{
-                root: { className: "bg-green-500 border-green-500 text-lg" },
-              }}
-            />
-          </div>
-          <div className="flex h-full items-center justify-center">
-            <div className="space-y-3 pl-8 pr-8 pt-8">{signUp ? <SignIn /> : <SignUp />}</div>
-          </div>
-        </div>
-      ) : (
-        <div
-          className="z-1 text-card-foreground formWidth h-max rounded-lg border-gray-800 bg-[#79018c] bg-opacity-30 bg-clip-padding p-6 shadow-md backdrop-blur-sm backdrop-filter md:w-1/3"
-          data-v0-t="card"
-        >
-          <div className="w-full text-center">
-            <Button
-              label="Connexion"
-              rounded
-              onClick={displaySignUp}
-              className="mr-3 text-lg px-6 py-3"
-              pt={{
-                root: { className: "bg-green-500 border-green-500 text-lg" },
-              }}
-            />
-            <Button
-              label="Inscription"
-              rounded
-              onClick={displaySignIn}
-              className="text-lg px-6 py-3"
-              pt={{
-                root: { className: "bg-green-500 border-green-500 text-lg" },
-              }}
-            />
-          </div>
-          <div className="flex h-full items-center justify-center">
-            <div className="space-y-3 pl-8 pr-8 pt-8">{signUp ? <SignIn /> : <SignUp />}</div>
-          </div>
-        </div>
-      )}
+      <div className="container mx-auto px-4 py-12">
+        <div className="flex justify-center items-center min-h-[calc(100vh-200px)]">
+          <div className="w-full max-w-2xl">
+            {/* Video Background for Desktop */}
+            {!isMobile && (
+              <div className="fixed inset-0 z-0 opacity-20">
+                <Suspense fallback={<div className="text-xl text-charcoal">Chargement de la vidéo...</div>}>
+                  <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                    <source src="/video/sign.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </Suspense>
+              </div>
+            )}
 
-      {/* Logo (right) */}
-      {isMobile != true && (
-        <div className="z-1 w-full md:w-2/3">
-          <Suspense fallback={<p className="text-lg">Chargement de l'image...</p>}>
-            <Image
-              src="/images/logo.png"
-              width={700}
-              height={700}
-              alt="Logo"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center lg:order-last"
-            />
-          </Suspense>
+            {/* Main Card */}
+            <Card className="relative z-10 bg-cream/95 backdrop-blur-sm border-gold/30 shadow-2xl">
+              <CardHeader className="text-center pb-6">
+                <div className="flex justify-center space-x-4 mb-8">
+                  <Button
+                    onClick={displaySignUp}
+                    variant={signUp ? "default" : "outline"}
+                    className={`px-8 py-3 text-lg font-semibold rounded-full transition-all ${
+                      signUp ? "bg-gold hover:bg-gold/90 text-charcoal" : "border-gold text-charcoal hover:bg-gold/10"
+                    }`}
+                  >
+                    Connexion
+                  </Button>
+                  <Button
+                    onClick={displaySignIn}
+                    variant={!signUp ? "default" : "outline"}
+                    className={`px-8 py-3 text-lg font-semibold rounded-full transition-all ${
+                      !signUp ? "bg-gold hover:bg-gold/90 text-charcoal" : "border-gold text-charcoal hover:bg-gold/10"
+                    }`}
+                  >
+                    Inscription
+                  </Button>
+                </div>
+                <CardTitle className="text-3xl font-advent-pro font-bold text-charcoal">
+                  {signUp ? "Bienvenue" : "Créer un compte"}
+                </CardTitle>
+                <p className="text-lg text-charcoal/70 mt-2">
+                  {signUp
+                    ? "Connectez-vous pour accéder à votre espace personnel"
+                    : "Rejoignez-nous pour découvrir l'art du Kobido"}
+                </p>
+              </CardHeader>
+              <CardContent className="px-8 pb-8">
+                <div className="space-y-6">{signUp ? <SignIn /> : <SignUp />}</div>
+              </CardContent>
+            </Card>
+
+            {/* Logo for Mobile */}
+            {isMobile && (
+              <div className="mt-12 text-center">
+                <Suspense fallback={<div className="text-lg text-charcoal">Chargement de l'image...</div>}>
+                  <Image
+                    src="/images/logo.png"
+                    width={200}
+                    height={200}
+                    alt="Logo"
+                    className="mx-auto rounded-xl opacity-80"
+                  />
+                </Suspense>
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }
