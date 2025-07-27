@@ -145,7 +145,7 @@ export default function Home() {
               onClick={() => scrollToSection("contact")}
               className="text-charcoal hover:text-gold transition-colors text-lg font-medium"
             >
-              Contact
+              Prenons contact
             </button>
             <Button
               onClick={() => setShowAccountModal(true)}
@@ -294,13 +294,13 @@ export default function Home() {
               </p>
             </div>
             <div className="relative h-[450px] rounded-lg overflow-hidden">
-              <Image src="/9G0A3569.jpg" alt="Soin Kobido traditionnel" fill className="object-cover" />
+              <Image src="/9G0A3569.jpg" alt="Soin Kobido traditionnel" fill className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 rounded-xl shadow-md" />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative h-[450px] rounded-lg overflow-hidden md:order-1">
-              <Image src="/9G0A3564.jpg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
+              <Image src="/9G0A3564.jpg" alt="Bienfaits du massage facial Kobido" fill className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 rounded-xl shadow-md" />
             </div>
             <div className="md:order-2">
               <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">Les bienfaits de l’Authentique Kobido®</h3>
@@ -339,7 +339,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl">
           <div className="grid md:grid-cols-3 gap-10 items-center">
             <div className="relative h-56 rounded-lg overflow-hidden">
-              <Image src="/9G0A3538.jpg" alt="Gestes délicats" fill className="object-cover" />
+              <Image src="/9G0A3538.jpg" alt="Gestes délicats" fill className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 rounded-xl shadow-md" />
             </div>
             <div className="text-center">
               <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">« Chaque geste est une caresse. Chaque mouvement une danse délicate qui sublime la beauté naturelle de votre peau »</h3>
@@ -349,7 +349,7 @@ export default function Home() {
               </p> */}
             </div>
             <div className="relative h-56 rounded-lg overflow-hidden">
-              <Image src="/9G0A3545.jpg" alt="Sérénité et équilibre" fill className="object-cover" />
+              <Image src="/9G0A3545.jpg" alt="Sérénité et équilibre" fill className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 rounded-xl shadow-md" />
             </div>
           </div>
         </div>
@@ -364,7 +364,7 @@ export default function Home() {
                 src="/photoPortait.jpg?height=500&width=400"
                 alt="Murielle, praticienne Kobido certifiée"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 rounded-xl shadow-md"
               />
             </div>
             <div>
