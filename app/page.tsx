@@ -6,7 +6,7 @@ import { Suspense } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram } from "lucide-react"
+import { Phone, Mail, MapPin, Menu, X, MessageSquare, Instagram, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -473,7 +473,7 @@ export default function Home() {
               <div className="space-y-6 mb-10">
                 <div className="flex items-center justify-center space-x-4">
                   <Phone className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">06 12 34 56 78</span>
+                  <span className="text-charcoal text-lg">06 09 42 92 49</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <Mail className="text-gold" size={24} />
@@ -489,19 +489,19 @@ export default function Home() {
                   <span className="text-charcoal text-lg">@beautedugeste</span>
                 </a>
                 <div className="flex items-center justify-center space-x-4">
+                  <Facebook className="text-gold" size={24} />
+                  <span className="text-charcoal text-lg">@beaute-dugeste</span>
+                </div>
+                <div className="flex items-center justify-center space-x-4">
                   <MapPin className="text-gold" size={24} />
-                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier, sur rendez-vous</span>
+                  <span className="text-charcoal text-lg">Marseille | Serre-Chevalier</span>
                 </div>
               </div>
 
               <div className="bg-rose/30 p-8 rounded-lg mb-10">
                 <h4 className="font-bold text-charcoal mb-3 text-xl">Horaires</h4>
                 <p className="text-charcoal text-lg">
-                  Du mardi au samedi
-                  <br />
-                  9h00 - 19h00
-                  <br />
-                  Sur rendez-vous uniquement
+                  Rendez-vous uniquement par téléphone
                 </p>
               </div>
 
