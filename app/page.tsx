@@ -285,7 +285,7 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
             <div>
-              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">L'Art du Kobido</h2>
+              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">L'Art du Kobido</h3>
               <p className="text-xl text-charcoal leading-relaxed mb-8">
                 Le Kobido, littéralement "voie de la beauté ancienne", est un massage facial traditionnel japonais vieux
                 de plus de 500 ans. Pratiqué à l'origine dans les cours impériales, ce soin d'exception combine des
@@ -293,16 +293,16 @@ export default function Home() {
               </p>
             </div>
             <div className="relative h-[450px] rounded-lg overflow-hidden">
-              <Image src="/dos.jpeg" alt="Soin Kobido traditionnel" fill className="object-cover" />
+              <Image src="/9G0A3569.jpg" alt="Soin Kobido traditionnel" fill className="object-cover" />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative h-[450px] rounded-lg overflow-hidden md:order-1">
-              <Image src="/face.jpeg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
+              <Image src="/9G0A3564.jpg" alt="Bienfaits du massage facial Kobido" fill className="object-cover" />
             </div>
             <div className="md:order-2">
-              <h2 className="text-5xl md:text-6xl font-advent-pro font-bold text-charcoal mb-8">Les bienfaits de l’Authentique Kobido®</h2>
+              <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">Les bienfaits de l’Authentique Kobido®</h3>
               <div className="space-y-6">
                 <p className="text-xl text-charcoal leading-relaxed">
                   Chaque geste est pensé pour stimuler la circulation, détendre les muscles faciaux et favoriser la
@@ -338,7 +338,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl">
           <div className="grid md:grid-cols-3 gap-10 items-center">
             <div className="relative h-56 rounded-lg overflow-hidden">
-              <Image src="/huile.jpeg" alt="Gestes délicats" fill className="object-cover" />
+              <Image src="/N°9G0A3538.jpg" alt="Gestes délicats" fill className="object-cover" />
             </div>
             <div className="text-center">
               <h3 className="text-3xl font-advent-pro font-bold text-charcoal mb-6">« Chaque geste est une caresse. Chaque mouvement une danse délicate qui sublime la beauté naturelle de votre peau »</h3>
@@ -348,7 +348,7 @@ export default function Home() {
               </p> */}
             </div>
             <div className="relative h-56 rounded-lg overflow-hidden">
-              <Image src="/dos.jpeg" alt="Sérénité et équilibre" fill className="object-cover" />
+              <Image src="/9G0A3545.jpg" alt="Sérénité et équilibre" fill className="object-cover" />
             </div>
           </div>
         </div>
