@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowLeft, Send, Phone, Mail, MapPin, Instagram } from "lucide-react"
-import { Logo } from "@/components/logo"
+import { LogoIcon } from "@/components/logo-icon"
 import { appContext } from "@/types/appContext"
 import { Toast } from "primereact/toast"
 

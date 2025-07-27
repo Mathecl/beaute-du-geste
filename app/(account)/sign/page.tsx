@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft } from "lucide-react"
-import { Logo } from "@/components/logo"
+import { LogoIcon } from "@/components/logo-icon"
 import SignIn from "@/ui/sign/SignIn"
 import SignUp from "@/ui/sign/SignUp"
 

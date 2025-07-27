@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, Check, X, Sun, Moon, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react"
-import { Logo } from "@/components/logo"
+import { LogoIcon } from "@/components/logo-icon"
 
 interface TimeSlot {
   time: string
